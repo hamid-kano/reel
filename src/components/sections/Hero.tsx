@@ -27,7 +27,14 @@ export function Hero() {
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-relaxed">
             {t('heroTitle')}
-            <span className="block gradient-text bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent mt-2 mb-4 md:mt-4 md:mb-8 overflow-visible">
+            <span className="block mt-2 mb-4 md:mt-4 md:mb-8" style={{
+              background: 'linear-gradient(135deg, #4ADE80, #ffffff)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              lineHeight: '1.2',
+              paddingBottom: '0.1em'
+            }}>
               {t('heroSubtitle')}
             </span>
           </h1>

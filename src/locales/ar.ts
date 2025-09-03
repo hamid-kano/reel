@@ -84,6 +84,20 @@ export const ar = {
   contactInfoFooter: 'معلومات التواصل',
   allRightsReserved: 'جميع الحقوق محفوظة.',
   
+  // Testimonials Section
+  testimonialsTitle: 'آراء عملائنا',
+  testimonialsDesc: 'اكتشف ما يقوله عملاؤنا عن تجربتهم معنا وكيف ساعدناهم في تحقيق أهدافهم',
+  
+  // Clients Section
+  clientsTitle: 'عملاؤنا',
+  clientsDesc: 'نفتخر بثقة عملائنا وشراكتنا الناجحة معهم في تحقيق النجاح الرقمي',
+  happyClients: 'عميل راضي',
+  projectsDelivered: 'مشروع مُسلم',
+  satisfactionRate: 'معدل الرضا',
+  support: 'دعم مستمر',
+  joinClientsTitle: 'انضم إلى عملائنا الناجحين',
+  joinClientsDesc: 'كن جزءاً من قصص النجاح واتخذ الخطوة الأولى نحو تحقيق أهدافك الرقمية',
+  
   // Common
   loading: 'جاري التحميل...',
   error: 'حدث خطأ',
@@ -100,5 +114,6 @@ export const ar = {
   next: 'التالي',
   previous: 'السابق',
   yes: 'نعم',
-  no: 'لا'
+  no: 'لا',
+  language: 'ar'
 };

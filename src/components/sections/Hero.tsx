@@ -5,7 +5,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 export function Hero() {
   const { t, dir } = useLanguage();
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900"></div>
       
@@ -16,37 +16,37 @@ export function Hero() {
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white/10 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
         <div className="animate-slide-in-left">
           <div className="flex justify-center mb-6">
-            <div className="flex items-center space-x-2-auto bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
               <Sparkles className="w-5 h-5 text-secondary-400" />
               <span className="text-white font-medium">{t('slogan')}</span>
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-relaxed">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
             {t('heroTitle')}
-            <span className="block mt-2 mb-4 md:mt-4 md:mb-8" style={{
+            <span className="block mt-3 mb-6 md:mt-4 md:mb-8" style={{
               background: 'linear-gradient(135deg, #4ADE80, #ffffff)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              lineHeight: '1.2',
-              paddingBottom: '0.1em'
+              lineHeight: '1.3',
+              paddingBottom: '0.2em'
             }}>
               {t('heroSubtitle')}
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-primary-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-primary-100 mb-10 max-w-3xl mx-auto leading-relaxed px-4">
             {t('heroDescription')}
           </p>
         </div>
 
-        <div className="animate-slide-in-right flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <div className="animate-slide-in-right flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
           <button className="group bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 animate-glow">
-            <span className="flex items-center space-x-2-auto">
+            <span className="flex items-center gap-2">
               <span>{t('startProject')}</span>
               <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
@@ -58,18 +58,18 @@ export function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-5xl mx-auto mt-8">
           {[
             { icon: Target, number: '93+', labelKey: 'projectsCompleted' as const },
             { icon: Zap, number: '14K+', labelKey: 'happyFollowers' as const },
             { icon: Sparkles, number: '100%', labelKey: 'clientSatisfaction' as const }
           ].map((stat, index) => (
-            <div key={index} className="text-center animate-slide-in-left" style={{animationDelay: `${index * 0.2}s`}}>
+            <div key={index} className="text-center animate-slide-in-left px-4" style={{animationDelay: `${index * 0.2}s`}}>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-4">
                 <stat.icon className="w-8 h-8 text-secondary-400" />
               </div>
-              <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-              <div className="text-primary-200">{t(stat.labelKey)}</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">{stat.number}</div>
+              <div className="text-sm sm:text-base text-primary-200">{t(stat.labelKey)}</div>
             </div>
           ))}
         </div>

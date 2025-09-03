@@ -84,6 +84,20 @@ export const en = {
   contactInfoFooter: 'Contact Information',
   allRightsReserved: 'All rights reserved.',
   
+  // Testimonials Section
+  testimonialsTitle: 'Client Reviews',
+  testimonialsDesc: 'Discover what our clients say about their experience with us and how we helped them achieve their goals',
+  
+  // Clients Section
+  clientsTitle: 'Our Clients',
+  clientsDesc: 'We are proud of our clients\' trust and our successful partnerships with them in achieving digital success',
+  happyClients: 'Happy Clients',
+  projectsDelivered: 'Projects Delivered',
+  satisfactionRate: 'Satisfaction Rate',
+  support: 'Continuous Support',
+  joinClientsTitle: 'Join Our Successful Clients',
+  joinClientsDesc: 'Be part of success stories and take the first step towards achieving your digital goals',
+  
   // Common
   loading: 'Loading...',
   error: 'An error occurred',
@@ -100,5 +114,6 @@ export const en = {
   next: 'Next',
   previous: 'Previous',
   yes: 'Yes',
-  no: 'No'
+  no: 'No',
+  language: 'en'
 };

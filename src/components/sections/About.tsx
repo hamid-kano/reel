@@ -9,7 +9,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center space-x-2 bg-primary-50 rounded-full px-4 py-2 mb-6">
+            <div className="inline-flex items-center space-x-2-auto bg-primary-50 rounded-full px-4 py-2 mb-6">
               <Award className="w-5 h-5 text-primary-600" />
               <span className="text-primary-700 font-medium">من نحن</span>
             </div>
@@ -30,7 +30,7 @@ export function About() {
                 { icon: Award, title: '100%', desc: 'رضا العملاء' },
                 { icon: MapPin, title: 'القامشلي', desc: 'مقابل صيدلية حمي' }
               ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-4">
+                <div key={index} className="flex items-start space-x-4-auto">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <item.icon className="w-6 h-6 text-primary-600" />
                   </div>

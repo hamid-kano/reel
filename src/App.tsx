@@ -4,15 +4,15 @@ import { HomePage } from './pages/HomePage';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
 function AppContent() {
-  const { dir } = useLanguage();
+  const { dir, language } = useLanguage();
   
   useEffect(() => {
     document.documentElement.dir = dir;
-    document.documentElement.lang = dir === 'rtl' ? 'ar' : 'en';
-  }, [dir]);
+    document.documentElement.lang = language;
+  }, [dir, language]);
   
   return (
-    <div dir={dir}>
+    <div dir={dir} className="min-h-screen">
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />

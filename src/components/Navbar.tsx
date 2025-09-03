@@ -26,7 +26,7 @@ export function Navbar() {
             <span className="text-xl font-bold gradient-text">REEL</span>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8-auto">
             {['home', 'services', 'portfolio', 'about', 'contact'].map((item) => (
               <a key={item} href="#" className={`transition-colors ${
                 scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-secondary-400'

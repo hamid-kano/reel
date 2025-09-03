@@ -33,3 +33,35 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* RTL/LTR Auto Alignment */
+.text-start { text-align: start; }
+.text-end { text-align: end; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+
+/* Auto spacing for RTL/LTR */
+.space-x-auto > * + * {
+  margin-inline-start: 0.5rem;
+}
+.space-x-2-auto > * + * {
+  margin-inline-start: 0.5rem;
+}
+.space-x-4-auto > * + * {
+  margin-inline-start: 1rem;
+}
+.space-x-8-auto > * + * {
+  margin-inline-start: 2rem;
+}
+
+/* Auto margins */
+.ms-auto { margin-inline-start: auto; }
+.me-auto { margin-inline-end: auto; }
+.ps-4 { padding-inline-start: 1rem; }
+.pe-4 { padding-inline-end: 1rem; }
+.ps-6 { padding-inline-start: 1.5rem; }
+.pe-6 { padding-inline-end: 1.5rem; }
+.ps-8 { padding-inline-start: 2rem; }
+.pe-8 { padding-inline-end: 2rem; }

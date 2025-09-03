@@ -19,7 +19,7 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-slide-in-left">
           <div className="flex justify-center mb-6">
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+            <div className="flex items-center space-x-2-auto bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
               <Sparkles className="w-5 h-5 text-secondary-400" />
               <span className="text-white font-medium">{t('slogan')}</span>
             </div>
@@ -39,7 +39,7 @@ export function Hero() {
 
         <div className="animate-slide-in-right flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <button className="group bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 animate-glow">
-            <span className="flex items-center space-x-2">
+            <span className="flex items-center space-x-2-auto">
               <span>{t('startProject')}</span>
               <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>

@@ -9,7 +9,7 @@ import { Footer } from '../components/Footer';
 
 export function HomePage() {
   return (
-    <div className="min-h-screen">
+    <>
       <Navbar />
       <Hero />
       <Services />
@@ -17,6 +17,6 @@ export function HomePage() {
       <Portfolio />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 }

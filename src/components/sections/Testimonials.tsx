@@ -102,10 +102,10 @@ export function Testimonials() {
           {/* Navigation */}
           <div className="flex justify-center items-center mt-8 space-x-4-auto">
             <button
-              onClick={prevTestimonial}
+              onClick={nextTestimonial}
               className="w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-primary-50 transition-colors"
             >
-              <ChevronLeft className="w-6 h-6 text-primary-600" />
+              <ChevronRight className="w-6 h-6 text-primary-600" />
             </button>
             
             <div className="flex space-x-2-auto">
@@ -121,10 +121,10 @@ export function Testimonials() {
             </div>
             
             <button
-              onClick={nextTestimonial}
+              onClick={prevTestimonial}
               className="w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-primary-50 transition-colors"
             >
-              <ChevronRight className="w-6 h-6 text-primary-600" />
+              <ChevronLeft className="w-6 h-6 text-primary-600" />
             </button>
           </div>
         </div>

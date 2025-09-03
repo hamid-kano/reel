@@ -5,7 +5,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 export function Hero() {
   const { t, dir } = useLanguage();
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900"></div>
       
@@ -25,9 +25,9 @@ export function Hero() {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-relaxed">
             {t('heroTitle')}
-            <span className="block gradient-text bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent">
+            <span className="block gradient-text bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent mt-2 mb-4 md:mt-4 md:mb-8 overflow-visible">
               {t('heroSubtitle')}
             </span>
           </h1>

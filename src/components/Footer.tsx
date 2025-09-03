@@ -52,16 +52,16 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">معلومات التواصل</h3>
             <div className="space-y-4">
-              <div className="flex items-center space-x-auto">
-                <Phone className="w-5 h-5 text-secondary-400" />
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-secondary-400 flex-shrink-0" />
                 <span className="text-gray-300">0996050284</span>
               </div>
-              <div className="flex items-center space-x-auto">
-                <MapPin className="w-5 h-5 text-secondary-400" />
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-secondary-400 flex-shrink-0" />
                 <span className="text-gray-300">القامشلي - مقابل صيدلية حمي</span>
               </div>
-              <div className="flex items-center space-x-auto">
-                <Instagram className="w-5 h-5 text-secondary-400" />
+              <div className="flex items-center gap-3">
+                <Instagram className="w-5 h-5 text-secondary-400 flex-shrink-0" />
                 <span className="text-gray-300">@reel_4ads</span>
               </div>
             </div>

@@ -1,18 +1,19 @@
 import React from 'react';
+import { Building2, ShoppingBag, Utensils, Heart, Laptop, GraduationCap, TrendingUp, Hammer } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Clients() {
   const { t } = useLanguage();
 
   const clients = [
-    { name: 'شركة النور', logo: '/api/placeholder/120/60' },
-    { name: 'مطعم الذوق الرفيع', logo: '/api/placeholder/120/60' },
-    { name: 'متجر الأناقة', logo: '/api/placeholder/120/60' },
-    { name: 'مركز الصحة', logo: '/api/placeholder/120/60' },
-    { name: 'شركة التقنية', logo: '/api/placeholder/120/60' },
-    { name: 'معهد التعليم', logo: '/api/placeholder/120/60' },
-    { name: 'مجموعة الاستثمار', logo: '/api/placeholder/120/60' },
-    { name: 'شركة البناء', logo: '/api/placeholder/120/60' }
+    { nameAr: 'شركة النور', nameEn: 'Al Nour Company', icon: Building2, color: 'from-blue-500 to-blue-600' },
+    { nameAr: 'مطعم الذوق الرفيع', nameEn: 'Fine Taste Restaurant', icon: Utensils, color: 'from-orange-500 to-red-500' },
+    { nameAr: 'متجر الأناقة', nameEn: 'Elegance Store', icon: ShoppingBag, color: 'from-pink-500 to-purple-500' },
+    { nameAr: 'مركز الصحة', nameEn: 'Health Center', icon: Heart, color: 'from-green-500 to-emerald-500' },
+    { nameAr: 'شركة التقنية', nameEn: 'Tech Company', icon: Laptop, color: 'from-indigo-500 to-blue-500' },
+    { nameAr: 'معهد التعليم', nameEn: 'Education Institute', icon: GraduationCap, color: 'from-yellow-500 to-orange-500' },
+    { nameAr: 'مجموعة الاستثمار', nameEn: 'Investment Group', icon: TrendingUp, color: 'from-teal-500 to-cyan-500' },
+    { nameAr: 'شركة البناء', nameEn: 'Construction Company', icon: Hammer, color: 'from-gray-600 to-gray-700' }
   ];
 
   return (
@@ -28,19 +29,25 @@ export function Clients() {
         </div>
 
         {/* Clients Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className="group bg-gray-50 rounded-2xl p-6 flex items-center justify-center hover:bg-primary-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="w-24 h-12 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-lg flex items-center justify-center group-hover:from-primary-300 group-hover:to-secondary-300 transition-all duration-300">
-                <span className="text-primary-700 font-bold text-sm text-center">
-                  {client.name}
-                </span>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {clients.map((client, index) => {
+            const IconComponent = client.icon;
+            return (
+              <div
+                key={index}
+                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+              >
+                <div className="text-center">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${client.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-gray-800 text-sm group-hover:text-primary-600 transition-colors">
+                    {t('language') === 'ar' ? client.nameAr : client.nameEn}
+                  </h3>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Stats */}

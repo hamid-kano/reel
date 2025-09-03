@@ -1,7 +1,9 @@
 import React from 'react';
 import { ArrowLeft, Sparkles, Zap, Target } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Hero() {
+  const { t, dir } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Gradient */}
@@ -19,32 +21,32 @@ export function Hero() {
           <div className="flex justify-center mb-6">
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
               <Sparkles className="w-5 h-5 text-secondary-400" />
-              <span className="text-white font-medium">الإبداع في قلب الإعلان</span>
+              <span className="text-white font-medium">{t('slogan')}</span>
             </div>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            نحول أفكارك إلى
+            {t('heroTitle')}
             <span className="block gradient-text bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent">
-              إبداع رقمي
+              {t('heroSubtitle')}
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-            شركة ريل للدعاية والإعلان - نقدم حلولاً إبداعية متكاملة لإدارة السوشيال ميديا، التصاميم، المونتاج وصناعة المحتوى
+            {t('heroDescription')}
           </p>
         </div>
 
         <div className="animate-slide-in-right flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <button className="group bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 animate-glow">
             <span className="flex items-center space-x-2">
-              <span>ابدأ مشروعك الآن</span>
+              <span>{t('startProject')}</span>
               <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </button>
           
           <button className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
-            تصفح أعمالنا
+            {t('viewWork')}
           </button>
         </div>
 

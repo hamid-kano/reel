@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+
+function AppContent() {
+  const { dir } = useLanguage();
+  
+  useEffect(() => {
+    document.documentElement.dir = dir;
+    document.documentElement.lang = dir === 'rtl' ? 'ar' : 'en';
+  }, [dir]);
+  
+  return (
+    <div dir={dir}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+}
 
 export function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

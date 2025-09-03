@@ -1,42 +1,45 @@
 import React from 'react';
 import { Instagram, Palette, Video, PenTool, Megaphone, BarChart3 } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Services() {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: Instagram,
-      title: 'إدارة السوشيال ميديا',
-      description: 'إدارة احترافية لحساباتك على جميع منصات التواصل الاجتماعي',
+      titleKey: 'socialMedia',
+      descKey: 'socialMediaDesc',
       color: 'from-pink-500 to-rose-500'
     },
     {
       icon: Palette,
-      title: 'التصاميم الإبداعية',
-      description: 'تصاميم مبتكرة تعكس هوية علامتك التجارية بأسلوب عصري',
+      titleKey: 'design',
+      descKey: 'designDesc',
       color: 'from-purple-500 to-indigo-500'
     },
     {
       icon: Video,
-      title: 'المونتاج والإنتاج',
-      description: 'مونتاج احترافي للفيديوهات والإعلانات التجارية',
+      titleKey: 'video',
+      descKey: 'videoDesc',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: PenTool,
-      title: 'صناعة المحتوى',
-      description: 'محتوى إبداعي يجذب جمهورك ويحقق أهدافك التسويقية',
+      titleKey: 'content',
+      descKey: 'contentDesc',
       color: 'from-green-500 to-emerald-500'
     },
     {
       icon: Megaphone,
-      title: 'الحملات الإعلانية',
-      description: 'استراتيجيات إعلانية مدروسة لتحقيق أقصى عائد على الاستثمار',
+      titleKey: 'campaigns',
+      descKey: 'campaignsDesc',
       color: 'from-orange-500 to-red-500'
     },
     {
       icon: BarChart3,
-      title: 'التحليل والتقارير',
-      description: 'تحليل شامل للأداء وتقارير مفصلة لقياس النجاح',
+      titleKey: 'analytics',
+      descKey: 'analyticsDesc',
       color: 'from-teal-500 to-green-500'
     }
   ];
@@ -46,10 +49,10 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            خدماتنا <span className="gradient-text">المتميزة</span>
+            {t('servicesTitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            نقدم مجموعة شاملة من الخدمات الرقمية المتطورة لتلبية جميع احتياجاتك التسويقية
+            {t('servicesDesc')}
           </p>
         </div>
 
@@ -64,11 +67,11 @@ export function Services() {
               </div>
               
               <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
-                {service.title}
+                {t(service.titleKey)}
               </h3>
               
               <p className="text-gray-600 leading-relaxed">
-                {service.description}
+                {t(service.descKey)}
               </p>
               
               <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Play } from 'lucide-react';
+import { Menu, X, Play, Globe } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, toggleLanguage, t, dir } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -24,14 +26,24 @@ export function Navbar() {
             <span className="text-xl font-bold gradient-text">REEL</span>
           </div>
           
-          <div className="hidden md:flex space-x-8">
-            {['الرئيسية', 'خدماتنا', 'أعمالنا', 'من نحن', 'تواصل معنا'].map((item) => (
+          <div className="hidden md:flex items-center space-x-8">
+            {['home', 'services', 'portfolio', 'about', 'contact'].map((item) => (
               <a key={item} href="#" className={`transition-colors ${
                 scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-secondary-400'
               }`}>
-                {item}
+                {t(item)}
               </a>
             ))}
+            
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center space-x-1 px-3 py-1 rounded-full transition-colors ${
+                scrolled ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'
+              }`}
+            >
+              <Globe className="w-4 h-4" />
+              <span className="text-sm font-medium">{language.toUpperCase()}</span>
+            </button>
           </div>
 
           <button 

@@ -19,7 +19,7 @@ export function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2-auto">
             <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
               <Play className="w-6 h-6 text-white" />
             </div>
@@ -37,7 +37,7 @@ export function Navbar() {
             
             <button
               onClick={toggleLanguage}
-              className={`flex items-center space-x-1 px-3 py-1 rounded-full transition-colors ${
+              className={`flex items-center space-x-auto px-3 py-1 rounded-full transition-colors ${
                 scrolled ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'
               }`}
             >

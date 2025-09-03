@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
+            <div className="flex items-center space-x-2-auto mb-6">
               <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
                 <Play className="w-6 h-6 text-white" />
               </div>
@@ -24,7 +24,7 @@ export function Footer() {
               "ريل: الإبداع في قلب الإعلان"
             </div>
             
-            <div className="flex space-x-4">
+            <div className="flex space-x-4-auto">
               <a href="#" className="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
@@ -52,15 +52,15 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">معلومات التواصل</h3>
             <div className="space-y-4">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-auto">
                 <Phone className="w-5 h-5 text-secondary-400" />
                 <span className="text-gray-300">0996050284</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-auto">
                 <MapPin className="w-5 h-5 text-secondary-400" />
                 <span className="text-gray-300">القامشلي - مقابل صيدلية حمي</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-auto">
                 <Instagram className="w-5 h-5 text-secondary-400" />
                 <span className="text-gray-300">@reel_4ads</span>
               </div>

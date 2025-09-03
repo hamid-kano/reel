@@ -1,7 +1,9 @@
 import React from 'react';
 import { Award, Users, Lightbulb, MapPin } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export function About() {
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

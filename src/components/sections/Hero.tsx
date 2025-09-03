@@ -53,16 +53,16 @@ export function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
-            { icon: Target, number: '93+', label: 'مشروع منجز' },
-            { icon: Zap, number: '14K+', label: 'متابع راضي' },
-            { icon: Sparkles, number: '100%', label: 'رضا العملاء' }
+            { icon: Target, number: '93+', labelKey: 'projectsCompleted' as const },
+            { icon: Zap, number: '14K+', labelKey: 'happyFollowers' as const },
+            { icon: Sparkles, number: '100%', labelKey: 'clientSatisfaction' as const }
           ].map((stat, index) => (
             <div key={index} className="text-center animate-slide-in-left" style={{animationDelay: `${index * 0.2}s`}}>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-4">
                 <stat.icon className="w-8 h-8 text-secondary-400" />
               </div>
               <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-              <div className="text-primary-200">{stat.label}</div>
+              <div className="text-primary-200">{t(stat.labelKey)}</div>
             </div>
           ))}
         </div>

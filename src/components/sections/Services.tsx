@@ -76,7 +76,7 @@ export function Services() {
               
               <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button className="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                  اعرف المزيد ←
+                  {t('learnMore')} ←
                 </button>
               </div>
             </div>

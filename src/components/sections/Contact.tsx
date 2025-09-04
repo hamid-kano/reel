@@ -128,7 +128,7 @@ export function Contact() {
                 ].map((item, index) => (
                   <motion.div 
                     key={index}
-                    className="flex items-center space-x-4"
+                    className="flex items-center gap-4"
                     variants={{
                       hidden: { x: -50, opacity: 0 },
                       visible: {

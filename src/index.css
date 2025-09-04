@@ -75,6 +75,17 @@
   }
 }
 
+/* Prevent horizontal scroll */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Ensure sections don't cause horizontal overflow */
+section {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 /* Auto margins */
 .ms-auto { margin-inline-start: auto; }
 .me-auto { margin-inline-end: auto; }

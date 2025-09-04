@@ -14,8 +14,8 @@ export function HomePage() {
     <>
       <Navbar />
       <Hero />
-      <Services />
       <About />
+      <Services />
       <Portfolio />
       <Testimonials />
       <Clients />

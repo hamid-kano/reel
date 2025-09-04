@@ -42,6 +42,7 @@ export function Hero() {
 
   return (
     <motion.section 
+      id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16"
       initial="hidden"
       animate="visible"

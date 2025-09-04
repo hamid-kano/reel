@@ -43,6 +43,7 @@ export function About() {
 
   return (
     <motion.section 
+      id="about"
       className="py-20 bg-white"
       initial="hidden"
       whileInView="visible"

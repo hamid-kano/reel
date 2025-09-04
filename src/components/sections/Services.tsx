@@ -83,6 +83,7 @@ export function Services() {
 
   return (
     <motion.section 
+      id="services"
       className="py-20 bg-gray-50"
       initial="hidden"
       whileInView="visible"

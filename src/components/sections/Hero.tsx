@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Hero() {
-  const { t, dir } = useLanguage();
+  const { t, dir, language } = useLanguage();
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -71,7 +71,9 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8">
+      <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 ${
+        language === 'ar' ? 'font-ar' : 'font-en'
+      }`}>
         <motion.div variants={itemVariants}>
           <motion.div 
             className="flex justify-center mb-6"
@@ -91,7 +93,9 @@ export function Hero() {
           </motion.div>
           
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight ${
+              language === 'ar' ? 'font-ar' : 'font-en'
+            }`}
             variants={itemVariants}
           >
             <motion.span

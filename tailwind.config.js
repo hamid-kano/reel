@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Cairo', 'sans-serif'],
+        sans: ['ReadexPro', 'Cairo', 'sans-serif'],
+        en: ['Como', 'sans-serif'],
+        ar: ['ReadexPro', 'sans-serif'],
       },
       colors: {
         primary: {

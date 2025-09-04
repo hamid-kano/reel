@@ -221,10 +221,6 @@ export function About() {
                         }
                       }
                     }}
-                    whileHover={{ 
-                      scale: 1.1,
-                      backgroundColor: "rgba(255, 255, 255, 0.2)"
-                    }}
                   >
                     <div className="text-2xl font-bold">
                       {item.value}

@@ -11,9 +11,9 @@ export function Navbar() {
 
   const menuItems = [
     { key: 'home', icon: Home, href: '#hero' },
+    { key: 'about', icon: User, href: '#about' },
     { key: 'services', icon: Settings, href: '#services' },
     { key: 'portfolio', icon: Briefcase, href: '#portfolio' },
-    { key: 'about', icon: User, href: '#about' },
     { key: 'contact', icon: Mail, href: '#contact' }
   ];
 

@@ -57,7 +57,11 @@ export function Navbar() {
         <div className="flex justify-between items-center h-20 relative">
           <div className="flex items-center gap-3 group">
             <div className="relative">
-              <Logo size="md" className="transition-transform duration-300 group-hover:scale-110" />
+              <Logo 
+                size="md" 
+                variant={scrolled ? 'dark' : 'light'}
+                className="transition-all duration-300 group-hover:scale-110" 
+              />
               <div className="absolute -inset-2 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <span className={`text-2xl font-bold bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-600 bg-clip-text text-transparent ${

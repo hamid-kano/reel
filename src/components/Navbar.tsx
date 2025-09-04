@@ -137,34 +137,69 @@ export function Navbar() {
           </div>
         </div>
         
-        {/* Mobile Menu */}
-        <div className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        {/* Mobile Sidebar */}
+        <div className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}>
-          <div className="bg-white/95 backdrop-blur-xl shadow-xl">
-            <div className={`p-4 ${
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          ></div>
+          
+          {/* Sidebar */}
+          <div className={`absolute ${language === 'ar' ? 'left-0' : 'right-0'} top-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ${
+            isOpen ? 'translate-x-0' : language === 'ar' ? '-translate-x-full' : 'translate-x-full'
+          }`}>
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <div className="flex items-center gap-3">
+                <Logo size="md" variant="dark" />
+                <span className={`text-xl font-bold text-primary-600 ${
+                  language === 'ar' ? 'font-ar' : 'font-en'
+                }`}>REEL</span>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            
+            {/* Menu Items */}
+            <div className={`p-6 space-y-2 ${
               language === 'ar' ? 'font-ar' : 'font-en'
             }`}>
-              <div className="grid grid-cols-2 gap-3">
-                {menuItems.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = activeSection === item.key;
-                  return (
-                    <button
-                      key={item.key}
-                      onClick={() => scrollToSection(item.href, item.key)}
-                      className={`flex flex-col items-center gap-2 p-4 rounded-xl transition-colors duration-300 ${
-                        isActive 
-                          ? 'bg-primary-500 text-white shadow-lg' 
-                          : 'bg-gray-50 text-gray-700 hover:bg-primary-50 hover:text-primary-600'
-                      }`}
-                    >
-                      <Icon className="w-6 h-6" />
-                      <span className="text-sm font-medium">{t(item.key)}</span>
-                    </button>
-                  );
-                })}
-              </div>
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.key;
+                return (
+                  <button
+                    key={item.key}
+                    onClick={() => scrollToSection(item.href, item.key)}
+                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-colors duration-300 ${
+                      isActive 
+                        ? 'bg-primary-500 text-white shadow-lg' 
+                        : 'text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span className="font-medium">{t(item.key)}</span>
+                  </button>
+                );
+              })}
+            </div>
+            
+            {/* Language Toggle */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <button
+                onClick={toggleLanguage}
+                className="w-full flex items-center justify-center gap-2 p-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-medium"
+              >
+                <Globe className="w-4 h-4" />
+                <span>{language === 'ar' ? 'English' : 'العربية'}</span>
+              </button>
             </div>
           </div>
         </div>

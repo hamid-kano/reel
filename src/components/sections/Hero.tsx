@@ -229,6 +229,12 @@ export function Hero() {
         >
           <motion.button 
             className="group bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
+            onClick={() => {
+              const element = document.querySelector('#contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
             whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(74, 222, 128, 0.3)" }}
             whileTap={{ scale: 0.95 }}
             animate={{
@@ -259,6 +265,12 @@ export function Hero() {
           
           <motion.button 
             className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+            onClick={() => {
+              const element = document.querySelector('#services');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
             whileTap={{ scale: 0.95 }}
           >

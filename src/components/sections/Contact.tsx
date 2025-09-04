@@ -43,7 +43,7 @@ export function Contact() {
   return (
     <motion.section 
       id="contact"
-      className="py-20 bg-gradient-to-br from-gray-900 to-primary-900 relative overflow-hidden"
+      className="pt-32 pb-20 bg-gradient-to-br from-gray-900 to-primary-900 relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

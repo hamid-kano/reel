@@ -117,7 +117,7 @@ export function Portfolio() {
   return (
     <motion.section 
       id="portfolio"
-      className="py-20 bg-gray-50"
+      className="pt-32 pb-20 bg-gray-50"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

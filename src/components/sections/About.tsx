@@ -44,7 +44,7 @@ export function About() {
   return (
     <motion.section 
       id="about"
-      className="py-20 bg-white"
+      className="pt-32 pb-20 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

@@ -56,23 +56,20 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 relative">
           <div className="flex items-center gap-3 group">
-            <div className="relative">
-              <Logo 
-                size="md" 
-                variant={scrolled ? 'dark' : 'light'}
-                className="transition-all duration-300 group-hover:scale-110" 
-              />
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <span className={`text-2xl font-bold bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-600 bg-clip-text text-transparent ${
+            <Logo 
+              size="md" 
+              variant={scrolled ? 'dark' : 'light'}
+              className="transition-opacity duration-300" 
+            />
+            <span className={`text-xl sm:text-2xl font-bold ${scrolled ? 'text-primary-600' : 'text-white'} transition-colors duration-300 ${
               language === 'ar' ? 'font-ar' : 'font-en'
             }`}>REEL</span>
           </div>
           
-          <div className={`hidden lg:flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2 ${
+          <div className={`hidden md:flex items-center gap-1 absolute left-1/2 transform -translate-x-1/2 ${
             language === 'ar' ? 'font-ar' : 'font-en'
           }`}>
-            <div className={`flex items-center gap-1 p-2 rounded-full transition-all duration-300 ${
+            <div className={`flex items-center gap-1 p-1 rounded-full transition-colors duration-300 ${
               scrolled ? 'bg-gray-100/80' : 'bg-white/10'
             }`}>
               {menuItems.map((item) => {
@@ -82,7 +79,7 @@ export function Navbar() {
                   <button
                     key={item.key}
                     onClick={() => scrollToSection(item.href, item.key)}
-                    className={`group relative flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                    className={`relative flex items-center gap-2 px-3 py-2 rounded-full transition-colors duration-300 ${
                       isActive
                         ? scrolled
                           ? 'bg-primary-500 text-white shadow-lg'
@@ -121,9 +118,9 @@ export function Navbar() {
             
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden relative p-3 rounded-full transition-all duration-300 ${
+              className={`md:hidden relative p-2 rounded-full transition-colors duration-300 ${
                 scrolled ? 'bg-primary-500 text-white' : 'bg-white/10 text-white'
-              } hover:scale-110`}
+              }`}
             >
               <div className="relative w-6 h-6">
                 <span className={`absolute block w-6 h-0.5 bg-current transition-all duration-300 ${
@@ -141,55 +138,68 @@ export function Navbar() {
         </div>
         
         {/* Mobile Menu */}
-        <div className={`lg:hidden absolute top-full left-0 w-full transition-all duration-500 overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
+          isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl">
-            <div className={`px-6 py-6 ${
+          <div className="bg-white/95 backdrop-blur-xl shadow-xl">
+            <div className={`p-4 ${
               language === 'ar' ? 'font-ar' : 'font-en'
             }`}>
-              {menuItems.map((item, index) => {
-                const Icon = item.icon;
-                const isActive = activeSection === item.key;
-                return (
-                  <button
-                    key={item.key}
-                    onClick={() => scrollToSection(item.href, item.key)}
-                    className={`group w-full flex items-center gap-4 py-4 px-4 rounded-xl transition-all duration-300 ${
-                      isActive 
-                        ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg transform scale-105' 
-                        : 'text-gray-700 hover:bg-primary-50 hover:text-primary-600 hover:translate-x-2'
-                    }`}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className={`p-2 rounded-lg transition-all duration-300 ${
-                      isActive ? 'bg-white/20' : 'bg-primary-100 group-hover:bg-primary-200'
-                    }`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="font-medium text-lg">{t(item.key)}</span>
-                    {isActive && (
-                      <div className="ml-auto w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                    )}
-                  </button>
-                );
-              })}
+              <div className="grid grid-cols-2 gap-3">
+                {menuItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = activeSection === item.key;
+                  return (
+                    <button
+                      key={item.key}
+                      onClick={() => scrollToSection(item.href, item.key)}
+                      className={`flex flex-col items-center gap-2 p-4 rounded-xl transition-colors duration-300 ${
+                        isActive 
+                          ? 'bg-primary-500 text-white shadow-lg' 
+                          : 'bg-gray-50 text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                      }`}
+                    >
+                      <Icon className="w-6 h-6" />
+                      <span className="text-sm font-medium">{t(item.key)}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Floating Action Button for Mobile */}
-      <div className={`lg:hidden fixed bottom-6 right-6 z-40 transition-all duration-300 ${
-        scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
-        <button
-          onClick={() => scrollToSection('#hero', 'home')}
-          className="group p-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110"
-        >
-          <Home className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
-        </button>
+      {/* Bottom Navigation for Mobile */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
+        <div className={`grid grid-cols-5 ${
+          language === 'ar' ? 'font-ar' : 'font-en'
+        }`}>
+          {menuItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.key;
+            return (
+              <button
+                key={item.key}
+                onClick={() => scrollToSection(item.href, item.key)}
+                className={`flex flex-col items-center gap-1 py-3 px-2 transition-colors duration-300 ${
+                  isActive 
+                    ? 'text-primary-600' 
+                    : 'text-gray-500 hover:text-primary-600'
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="text-xs font-medium">{t(item.key)}</span>
+                {isActive && (
+                  <div className="w-1 h-1 bg-primary-600 rounded-full"></div>
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
+      {/* Mobile Bottom Padding */}
+      <div className="md:hidden h-20"></div>
     </nav>
   );
 }

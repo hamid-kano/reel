@@ -70,11 +70,102 @@ export function Hero() {
           animate="animate"
           transition={{ delay: 4 }}
         />
+        
+        {/* Artistic Triangles */}
+        <motion.div 
+          className="absolute top-32 right-20 w-0 h-0"
+          style={{
+            borderLeft: '60px solid transparent',
+            borderRight: '60px solid transparent',
+            borderBottom: '100px solid rgba(124, 58, 237, 0.3)',
+            filter: 'blur(1px)'
+          }}
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+            scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-32 left-20 w-0 h-0"
+          style={{
+            borderLeft: '50px solid transparent',
+            borderRight: '50px solid transparent',
+            borderTop: '80px solid rgba(34, 197, 94, 0.4)',
+            filter: 'blur(1px)'
+          }}
+          animate={{
+            rotate: [360, 0],
+            scale: [1, 1.3, 1],
+            x: [0, 20, 0]
+          }}
+          transition={{
+            rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+            scale: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 },
+            x: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }
+          }}
+        />
+        <motion.div 
+          className="absolute top-1/3 left-1/4 w-0 h-0"
+          style={{
+            borderLeft: '30px solid transparent',
+            borderRight: '30px solid transparent',
+            borderBottom: '50px solid rgba(124, 58, 237, 0.2)',
+            filter: 'blur(2px)'
+          }}
+          animate={{
+            rotate: [0, -360],
+            y: [0, -30, 0]
+          }}
+          transition={{
+            rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+            y: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 3 }
+          }}
+        />
       </div>
 
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 ${
         language === 'ar' ? 'font-ar' : 'font-en'
       }`}>
+        {/* Additional Small Triangles */}
+        <motion.div 
+          className="absolute top-10 right-10 w-0 h-0 hidden md:block"
+          style={{
+            borderLeft: '15px solid transparent',
+            borderRight: '15px solid transparent',
+            borderTop: '25px solid rgba(34, 197, 94, 0.6)'
+          }}
+          animate={{
+            rotate: [0, 180, 360],
+            opacity: [0.6, 1, 0.6]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-20 left-10 w-0 h-0 hidden md:block"
+          style={{
+            borderLeft: '20px solid transparent',
+            borderRight: '20px solid transparent',
+            borderBottom: '35px solid rgba(124, 58, 237, 0.5)'
+          }}
+          animate={{
+            rotate: [360, 180, 0],
+            scale: [1, 1.5, 1]
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
         <motion.div variants={itemVariants}>
           <motion.div 
             className="flex justify-center mb-6"

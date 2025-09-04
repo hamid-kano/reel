@@ -355,7 +355,7 @@ export function Portfolio() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              {t('readyToStart')}
+              {t('startProject')}
             </motion.h3>
             <motion.p 
               className="text-gray-600 mb-6"
@@ -363,7 +363,7 @@ export function Portfolio() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              {t('portfolioCTA')}
+              {t('portfolioDesc')}
             </motion.p>
             <motion.button 
               className="bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg"

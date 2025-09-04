@@ -109,16 +109,16 @@ export function About() {
                       }
                     }
                   }}
-                  whileHover={{ scale: 1.05, x: 10 }}
+                  whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div 
                     className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0"
                     whileHover={{ 
                       backgroundColor: "rgb(239 246 255)",
-                      rotate: 360 
+                      scale: 1.1
                     }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <item.icon className="w-6 h-6 text-primary-600" />
                   </motion.div>
@@ -133,10 +133,10 @@ export function About() {
             <motion.button 
               className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
               whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)"
+                scale: 1.02,
+                boxShadow: "0 5px 15px rgba(37, 99, 235, 0.2)"
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
               variants={itemVariants}
             >
               {t('ourStory')}

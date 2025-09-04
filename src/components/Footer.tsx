@@ -1,7 +1,9 @@
 import React from 'react';
 import { Play, Instagram, Facebook, Phone, MapPin, Mail } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -16,12 +18,11 @@ export function Footer() {
             </div>
             
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
-              شركة ريل للدعاية والإعلان - نقدم حلولاً إبداعية متكاملة لإدارة السوشيال ميديا، 
-              التصاميم، المونتاج وصناعة المحتوى.
+              {t('companyDesc')}
             </p>
             
             <div className="text-secondary-400 font-semibold mb-4">
-              "ريل: الإبداع في قلب الإعلان"
+              "{t('slogan')}"
             </div>
             
             <div className="flex space-x-4-auto">
@@ -36,9 +37,9 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">روابط سريعة</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('quickLinks')}</h3>
             <ul className="space-y-3">
-              {['الرئيسية', 'خدماتنا', 'أعمالنا', 'من نحن', 'تواصل معنا'].map((link) => (
+              {[t('home'), t('services'), t('portfolio'), t('about'), t('contact')].map((link) => (
                 <li key={link}>
                   <a href="#" className="text-gray-300 hover:text-secondary-400 transition-colors">
                     {link}
@@ -50,7 +51,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">معلومات التواصل</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('contactInfoFooter')}</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-secondary-400 flex-shrink-0" />
@@ -70,7 +71,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 ريل للدعاية والإعلان. جميع الحقوق محفوظة.
+            © 2024 ريل للدعاية والإعلان. {t('allRightsReserved')}
           </p>
         </div>
       </div>

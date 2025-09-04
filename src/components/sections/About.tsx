@@ -54,7 +54,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div variants={itemVariants}>
             <motion.div 
-              className="inline-flex items-center space-x-2-auto bg-primary-50 rounded-full px-4 py-2 mb-6"
+              className="inline-flex items-center gap-2 bg-primary-50 rounded-full px-4 py-2 mb-6"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
@@ -64,30 +64,21 @@ export function About() {
               >
                 <Award className="w-5 h-5 text-primary-600" />
               </motion.div>
-              <span className="text-primary-700 font-medium">من نحن</span>
+              <span className="text-primary-700 font-medium">{t('aboutBadge')}</span>
             </motion.div>
             
             <motion.h2 
               className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
               variants={itemVariants}
             >
-              نحن <motion.span 
-                className="gradient-text"
-                animate={{ 
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                ريل
-              </motion.span> للدعاية والإعلان
+              {t('aboutTitle')}
             </motion.h2>
             
             <motion.p 
               className="text-lg text-gray-600 mb-8 leading-relaxed"
               variants={itemVariants}
             >
-              شركة رائدة في مجال الدعاية والإعلان الرقمي، نتميز بتقديم حلول إبداعية ومبتكرة 
-              تساعد العلامات التجارية على تحقيق أهدافها وبناء حضور قوي في العالم الرقمي.
+              {t('aboutDesc')}
             </motion.p>
 
             <motion.div 
@@ -104,14 +95,14 @@ export function About() {
               }}
             >
               {[
-                { icon: Users, title: '14K+ متابع', desc: 'ثقة عملائنا' },
-                { icon: Lightbulb, title: '93+ مشروع', desc: 'مشاريع ناجحة' },
-                { icon: Award, title: '100%', desc: 'رضا العملاء' },
-                { icon: MapPin, title: 'القامشلي', desc: 'مقابل صيدلية حمي' }
+                { icon: Users, title: '14K+', desc: t('clientTrust') },
+                { icon: Lightbulb, title: '93+', desc: t('successfulProjects') },
+                { icon: Award, title: '100%', desc: t('clientSatisfaction') },
+                { icon: MapPin, title: t('location').split(' - ')[0], desc: t('location').split(' - ')[1] }
               ].map((item, index) => (
                 <motion.div 
                   key={index} 
-                  className="flex items-start space-x-4-auto"
+                  className="flex items-start gap-4"
                   variants={{
                     hidden: { x: -50, opacity: 0 },
                     visible: {
@@ -153,7 +144,7 @@ export function About() {
               whileTap={{ scale: 0.95 }}
               variants={itemVariants}
             >
-              تعرف على قصتنا
+              {t('ourStory')}
             </motion.button>
           </motion.div>
 
@@ -187,7 +178,7 @@ export function About() {
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  رؤيتنا
+                  {t('vision')}
                 </motion.h3>
                 <motion.p 
                   className="text-primary-100 leading-relaxed"
@@ -196,8 +187,7 @@ export function About() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                  "الإبداع في قلب الإعلان" - نسعى لأن نكون الشريك الأول للعلامات التجارية 
-                  في رحلتها نحو النجاح الرقمي من خلال الإبداع والابتكار.
+                  {t('visionDesc')}
                 </motion.p>
               </motion.div>
               
@@ -218,8 +208,8 @@ export function About() {
                 viewport={{ once: true }}
               >
                 {[
-                  { value: '2024', label: 'سنة التأسيس' },
-                  { value: '24/7', label: 'دعم مستمر' }
+                  { value: '2024', label: t('foundingYear') },
+                  { value: '24/7', label: t('continuousSupport') }
                 ].map((item, index) => (
                   <motion.div 
                     key={index}

@@ -15,7 +15,7 @@ export function Logo({ className = '', size = 'md', variant = 'light' }: LogoPro
 
   return (
     <img 
-      src={variant === 'dark' ? '/assets/images/logo-dark.svg' : '/assets/images/logo.svg'}
+      src={variant === 'dark' ? '/assets/images/logo-purple.svg' : '/assets/images/logo.svg'}
       alt="Reel Logo" 
       className={`${sizeClasses[size]} ${className}`}
     />

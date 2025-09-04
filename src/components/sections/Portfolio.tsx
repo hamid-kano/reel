@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ExternalLink, Play, Image } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Portfolio() {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('all');
   
   const containerVariants = {
@@ -50,20 +52,20 @@ export function Portfolio() {
   };
 
   const projects = [
-    { id: 1, title: 'حملة إعلانية لمطعم', category: 'ads', type: 'image' },
-    { id: 2, title: 'فيديو ترويجي لشركة', category: 'video', type: 'video' },
-    { id: 3, title: 'تصميم هوية بصرية', category: 'design', type: 'image' },
-    { id: 4, title: 'إدارة حساب إنستغرام', category: 'social', type: 'image' },
-    { id: 5, title: 'محتوى تسويقي', category: 'content', type: 'image' },
-    { id: 6, title: 'إعلان تجاري', category: 'video', type: 'video' }
+    { id: 1, title: t('restaurantCampaign'), category: 'ads', type: 'image' },
+    { id: 2, title: t('companyPromo'), category: 'video', type: 'video' },
+    { id: 3, title: t('brandIdentity'), category: 'design', type: 'image' },
+    { id: 4, title: t('instagramManagement'), category: 'social', type: 'image' },
+    { id: 5, title: t('marketingContent'), category: 'content', type: 'image' },
+    { id: 6, title: t('commercialAd'), category: 'video', type: 'video' }
   ];
 
   const filters = [
-    { id: 'all', label: 'جميع الأعمال' },
-    { id: 'design', label: 'التصاميم' },
-    { id: 'video', label: 'الفيديوهات' },
-    { id: 'social', label: 'السوشيال ميديا' },
-    { id: 'ads', label: 'الإعلانات' }
+    { id: 'all', label: t('allWork') },
+    { id: 'design', label: t('designs') },
+    { id: 'video', label: t('videos') },
+    { id: 'social', label: t('socialMediaWork') },
+    { id: 'ads', label: t('advertisements') }
   ];
 
   const filteredProjects = activeFilter === 'all' 
@@ -88,15 +90,7 @@ export function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            معرض <motion.span 
-              className="gradient-text"
-              animate={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              أعمالنا
-            </motion.span>
+            {t('portfolioTitle')}
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
@@ -105,7 +99,7 @@ export function Portfolio() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            استكشف مجموعة من أفضل أعمالنا التي حققت نجاحاً باهراً لعملائنا
+            {t('portfolioDesc')}
           </motion.p>
 
           {/* Filter Buttons */}
@@ -270,7 +264,7 @@ export function Portfolio() {
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400 }}
                     >
-                      عرض التفاصيل
+                      {t('viewDetails')}
                     </motion.button>
                   </div>
                 </motion.div>
@@ -309,7 +303,7 @@ export function Portfolio() {
               }
             }}
           >
-            عرض جميع الأعمال
+            {t('viewAllWork')}
           </motion.button>
         </motion.div>
       </div>

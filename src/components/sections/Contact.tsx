@@ -1,8 +1,10 @@
 import React from 'react';
 import { Phone, MapPin, MessageCircle, Send, Instagram, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export function Contact() {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,15 +70,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            تواصل <motion.span 
-              className="gradient-text bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent"
-              animate={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              معنا
-            </motion.span>
+            {t('contactTitle')}
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-300 max-w-3xl mx-auto"
@@ -85,7 +79,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            لا تتردد في التواصل معنا لأي استفسار أو لبدء مشروعك القادم
+            {t('contactDesc')}
           </motion.p>
         </motion.div>
 
@@ -108,7 +102,7 @@ export function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                معلومات التواصل
+                {t('contactInfo')}
               </motion.h3>
               
               <motion.div 
@@ -128,8 +122,8 @@ export function Contact() {
                 viewport={{ once: true }}
               >
                 {[
-                  { icon: Phone, title: 'هاتف', value: '0996050284', color: 'bg-secondary-500' },
-                  { icon: MapPin, title: 'العنوان', value: 'القامشلي - مقابل صيدلية حمي', color: 'bg-primary-500' },
+                  { icon: Phone, title: t('phone'), value: '0996050284', color: 'bg-secondary-500' },
+                  { icon: MapPin, title: t('address'), value: t('location'), color: 'bg-primary-500' },
                   { icon: Instagram, title: 'إنستغرام', value: '@reel_4ads', color: 'bg-pink-500' }
                 ].map((item, index) => (
                   <motion.div 
@@ -191,10 +185,10 @@ export function Contact() {
                       ease: "easeInOut"
                     }}
                   >
-                    "ريل: الإبداع في قلب الإعلان"
+                    "{t('slogan')}"
                   </motion.div>
                   <div className="text-gray-400 text-sm">
-                    نقدم لك حلولاً إبداعية لنجاح علامتك التجارية
+                    {t('heroDescription')}
                   </div>
                 </div>
               </motion.div>
@@ -219,7 +213,7 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              أرسل رسالة
+              {t('sendMessage')}
             </motion.h3>
             
             <motion.form 
@@ -252,7 +246,7 @@ export function Contact() {
                   }
                 }}
               >
-                {['الاسم', 'رقم الهاتف'].map((placeholder, index) => (
+                {[t('name'), t('phoneNumber')].map((placeholder, index) => (
                   <motion.input
                     key={index}
                     type={index === 1 ? 'tel' : 'text'}
@@ -277,7 +271,7 @@ export function Contact() {
               
               <motion.input
                 type="email"
-                placeholder="البريد الإلكتروني"
+                placeholder={t('email')}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary-400 transition-colors"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
@@ -310,17 +304,17 @@ export function Contact() {
                   boxShadow: "0 0 20px rgba(74, 222, 128, 0.3)"
                 }}
               >
-                <option value="">اختر الخدمة</option>
-                <option value="social">إدارة السوشيال ميديا</option>
-                <option value="design">التصاميم الإبداعية</option>
-                <option value="video">المونتاج والإنتاج</option>
-                <option value="content">صناعة المحتوى</option>
-                <option value="ads">الحملات الإعلانية</option>
+                <option value="">{t('selectService')}</option>
+                <option value="social">{t('socialMedia')}</option>
+                <option value="design">{t('design')}</option>
+                <option value="video">{t('video')}</option>
+                <option value="content">{t('content')}</option>
+                <option value="ads">{t('campaigns')}</option>
               </motion.select>
               
               <motion.textarea
                 rows={4}
-                placeholder="اكتب رسالتك هنا..."
+                placeholder={t('message')}
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-secondary-400 transition-colors resize-none"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
@@ -368,7 +362,7 @@ export function Contact() {
                   }
                 }}
               >
-                <span>إرسال الرسالة</span>
+                <span>{t('send')}</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

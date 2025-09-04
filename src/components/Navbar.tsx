@@ -79,7 +79,7 @@ export function Navbar() {
             }`}>REEL</span>
           </div>
           
-          <div className={`hidden md:flex items-center gap-1 absolute left-1/2 transform -translate-x-1/2 ${
+          <div className={`hidden lg:flex items-center gap-1 absolute left-1/2 transform -translate-x-1/2 ${
             language === 'ar' ? 'font-ar' : 'font-en'
           }`}>
             <div className={`flex items-center gap-1 p-1 rounded-full transition-colors duration-300 ${
@@ -152,7 +152,7 @@ export function Navbar() {
         </div>
         
         {/* Mobile Sidebar */}
-        <div className={`md:hidden fixed inset-0 z-[9999] transition-opacity duration-300 ${
+        <div className={`block md:hidden fixed inset-0 z-[9999] transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`} role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
           {/* Backdrop */}
@@ -234,7 +234,7 @@ export function Navbar() {
       </div>
       
       {/* Bottom Navigation for Mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
+      <div className="hidden fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
         <div className={`grid grid-cols-5 ${
           language === 'ar' ? 'font-ar' : 'font-en'
         }`}>
@@ -261,8 +261,7 @@ export function Navbar() {
           })}
         </div>
       </div>
-      {/* Mobile Bottom Padding */}
-      <div className="md:hidden h-20"></div>
+
     </nav>
   );
 }

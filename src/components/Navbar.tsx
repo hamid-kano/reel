@@ -76,7 +76,7 @@ export function Navbar() {
             />
             <span className={`text-xl sm:text-2xl font-bold ${scrolled ? 'text-primary-600' : 'text-white'} transition-colors duration-300 ${
               language === 'ar' ? 'font-ar' : 'font-en'
-            }`}>REEL</span>
+            }`}>{language === 'ar' ? 'ريل' : 'REEL'}</span>
           </div>
           
           <div className={`hidden lg:flex items-center gap-1 absolute left-1/2 transform -translate-x-1/2 ${
@@ -171,7 +171,7 @@ export function Navbar() {
                 <Logo size="md" variant="dark" />
                 <span id="mobile-menu-title" className={`text-xl font-bold text-primary-600 ${
                   language === 'ar' ? 'font-ar' : 'font-en'
-                }`}>REEL</span>
+                }`}>{language === 'ar' ? 'ريل' : 'REEL'}</span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}

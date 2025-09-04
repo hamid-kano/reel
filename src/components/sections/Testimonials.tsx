@@ -197,7 +197,7 @@ export function Testimonials() {
                   </motion.blockquote>
                   
                   <motion.div 
-                    className="flex items-center justify-center space-x-4-auto"
+                    className="flex items-center justify-center gap-4"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
@@ -235,7 +235,7 @@ export function Testimonials() {
 
           {/* Navigation */}
           <motion.div 
-            className="flex justify-center items-center mt-8 space-x-4-auto"
+            className="flex justify-center items-center mt-8 gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -254,7 +254,7 @@ export function Testimonials() {
             </motion.button>
             
             <motion.div 
-              className="flex space-x-2-auto"
+              className="flex gap-2"
               variants={{
                 hidden: { opacity: 0 },
                 visible: {

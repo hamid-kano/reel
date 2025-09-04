@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2-auto mb-6">
+            <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
                 <Play className="w-6 h-6 text-white" />
               </div>
@@ -25,7 +25,7 @@ export function Footer() {
               "{t('slogan')}"
             </div>
             
-            <div className="flex space-x-4-auto">
+            <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>

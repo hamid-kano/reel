@@ -197,7 +197,8 @@ export function Services() {
               <motion.div 
                 className="relative bg-white/10 backdrop-blur-2xl rounded-3xl p-8 border border-white/20 overflow-hidden h-80 flex flex-col"
                 style={{
-                  background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`
+                  background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                  direction: t('language') === 'ar' ? 'rtl' : 'ltr'
                 }}
                 whileHover={{
                   background: `linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.1) 100%)`,
@@ -292,18 +293,16 @@ export function Services() {
                   
                   {/* Minimal Button */}
                   <motion.button 
-                    className={`text-gray-700 font-medium text-sm flex items-center gap-2 group-hover:text-gray-900 transition-colors mt-auto ${
-                      t('language') === 'ar' ? 'flex-row-reverse' : ''
-                    }`}
-                    whileHover={{ x: t('language') === 'ar' ? -5 : 5 }}
+                    className="text-gray-700 font-medium text-sm flex items-center gap-2 group-hover:text-gray-900 transition-colors mt-auto"
+                    whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     {t('learnMore')}
                     <motion.span
-                      animate={{ x: t('language') === 'ar' ? [0, -3, 0] : [0, 3, 0] }}
+                      animate={{ x: [0, 3, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      {t('language') === 'ar' ? '←' : '→'}
+                      →
                     </motion.span>
                   </motion.button>
                 </div>

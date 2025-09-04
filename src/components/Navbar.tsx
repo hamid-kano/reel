@@ -47,6 +47,19 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [menuItems]);
 
+  // Prevent body scroll when sidebar is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${
       scrolled 
@@ -118,9 +131,10 @@ export function Navbar() {
             
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden relative p-2 rounded-full transition-colors duration-300 ${
-                scrolled ? 'bg-primary-500 text-white' : 'bg-white/10 text-white'
+              className={`md:hidden relative p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                scrolled ? 'bg-primary-500 text-white shadow-lg' : 'bg-white/10 text-white backdrop-blur-sm'
               }`}
+              aria-label={isOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
             >
               <div className="relative w-6 h-6">
                 <span className={`absolute block w-6 h-0.5 bg-current transition-all duration-300 ${
@@ -138,64 +152,78 @@ export function Navbar() {
         </div>
         
         {/* Mobile Sidebar */}
-        <div className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
+        <div className={`md:hidden fixed inset-0 z-[9999] transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}>
+        }`} role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
           {/* Backdrop */}
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           ></div>
           
           {/* Sidebar */}
-          <div className={`absolute ${language === 'ar' ? 'left-0' : 'right-0'} top-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ${
-            isOpen ? 'translate-x-0' : language === 'ar' ? '-translate-x-full' : 'translate-x-full'
+          <div className={`absolute ${language === 'ar' ? 'right-0' : 'left-0'} top-0 h-screen mobile-sidebar bg-white shadow-2xl transform transition-all duration-300 ease-out flex flex-col ${
+            isOpen ? 'translate-x-0' : language === 'ar' ? 'translate-x-full' : '-translate-x-full'
           }`}>
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+            <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-primary-50 to-secondary-50">
               <div className="flex items-center gap-3">
                 <Logo size="md" variant="dark" />
-                <span className={`text-xl font-bold text-primary-600 ${
+                <span id="mobile-menu-title" className={`text-xl font-bold text-primary-600 ${
                   language === 'ar' ? 'font-ar' : 'font-en'
                 }`}>REEL</span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                className="p-2 rounded-full hover:bg-white hover:shadow-md transition-all duration-200 group"
+                aria-label="إغلاق القائمة"
               >
-                <X className="w-5 h-5 text-gray-600" />
+                <X className="w-5 h-5 text-gray-600 group-hover:text-primary-600 transition-colors" />
               </button>
             </div>
             
             {/* Menu Items */}
-            <div className={`p-6 space-y-2 ${
+            <div className={`p-6 space-y-3 flex-1 overflow-y-auto sidebar-scroll min-h-0 ${
               language === 'ar' ? 'font-ar' : 'font-en'
             }`}>
-              {menuItems.map((item) => {
+              {menuItems.map((item, index) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.key;
                 return (
                   <button
                     key={item.key}
                     onClick={() => scrollToSection(item.href, item.key)}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-colors duration-300 ${
+                    className={`mobile-menu-item w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] ${
                       isActive 
-                        ? 'bg-primary-500 text-white shadow-lg' 
-                        : 'text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                        ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg' 
+                        : 'text-gray-700 hover:bg-gradient-to-r hover:from-primary-50 hover:to-secondary-50 hover:text-primary-600 hover:shadow-md'
                     }`}
+                    style={{ 
+                      animationDelay: `${index * 50}ms`,
+                      animation: isOpen ? `menuItemSlide 0.4s ease-out ${index * 50}ms both` : 'none'
+                    }}
                   >
-                    <Icon className="w-5 h-5" />
-                    <span className="font-medium">{t(item.key)}</span>
+                    <Icon className={`w-5 h-5 transition-transform duration-300 ${
+                      isActive ? 'scale-110' : 'group-hover:scale-110'
+                    }`} />
+                    <span className="font-medium text-start flex-1">{t(item.key)}</span>
+                    {isActive && (
+                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    )}
                   </button>
                 );
               })}
             </div>
             
             {/* Language Toggle */}
-            <div className="absolute bottom-6 left-6 right-6">
+            <div className="p-6 border-t border-gray-100">
               <button
-                onClick={toggleLanguage}
-                className="w-full flex items-center justify-center gap-2 p-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-medium"
+                onClick={() => {
+                  toggleLanguage();
+                  setIsOpen(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 p-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+                aria-label={`تغيير اللغة إلى ${language === 'ar' ? 'English' : 'العربية'}`}
               >
                 <Globe className="w-4 h-4" />
                 <span>{language === 'ar' ? 'English' : 'العربية'}</span>
@@ -206,7 +234,7 @@ export function Navbar() {
       </div>
       
       {/* Bottom Navigation for Mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
         <div className={`grid grid-cols-5 ${
           language === 'ar' ? 'font-ar' : 'font-en'
         }`}>

@@ -58,12 +58,7 @@ export function About() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Award className="w-5 h-5 text-primary-600" />
-              </motion.div>
+              <Award className="w-5 h-5 text-primary-600" />
               <span className="text-primary-700 font-medium">{t('aboutBadge')}</span>
             </motion.div>
             
@@ -231,51 +226,17 @@ export function About() {
                       backgroundColor: "rgba(255, 255, 255, 0.2)"
                     }}
                   >
-                    <motion.div 
-                      className="text-2xl font-bold"
-                      animate={{ 
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{ 
-                        duration: 2, 
-                        repeat: Infinity, 
-                        ease: "easeInOut",
-                        delay: index * 0.5
-                      }}
-                    >
+                    <div className="text-2xl font-bold">
                       {item.value}
-                    </motion.div>
+                    </div>
                     <div className="text-sm text-primary-200">{item.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
             </motion.div>
             
-            <motion.div 
-              className="absolute -top-4 -right-4 w-24 h-24 bg-secondary-400/20 rounded-full blur-xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3]
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div 
-              className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-400/20 rounded-full blur-xl"
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.2, 0.5, 0.2]
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            />
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-secondary-400/20 rounded-full blur-xl opacity-30" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-400/20 rounded-full blur-xl opacity-20" />
           </motion.div>
         </div>
       </div>

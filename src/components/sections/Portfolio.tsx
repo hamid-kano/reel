@@ -52,12 +52,54 @@ export function Portfolio() {
   };
 
   const projects = [
-    { id: 1, title: t('restaurantCampaign'), category: 'ads', type: 'image' },
-    { id: 2, title: t('companyPromo'), category: 'video', type: 'video' },
-    { id: 3, title: t('brandIdentity'), category: 'design', type: 'image' },
-    { id: 4, title: t('instagramManagement'), category: 'social', type: 'image' },
-    { id: 5, title: t('marketingContent'), category: 'content', type: 'image' },
-    { id: 6, title: t('commercialAd'), category: 'video', type: 'video' }
+    { 
+      id: 1, 
+      title: t('restaurantCampaign'), 
+      category: 'ads', 
+      type: 'image',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-orange-400 to-red-500'
+    },
+    { 
+      id: 2, 
+      title: t('companyPromo'), 
+      category: 'video', 
+      type: 'video',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-blue-400 to-purple-500'
+    },
+    { 
+      id: 3, 
+      title: t('brandIdentity'), 
+      category: 'design', 
+      type: 'image',
+      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-pink-400 to-purple-500'
+    },
+    { 
+      id: 4, 
+      title: t('instagramManagement'), 
+      category: 'social', 
+      type: 'image',
+      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-purple-400 to-pink-500'
+    },
+    { 
+      id: 5, 
+      title: t('marketingContent'), 
+      category: 'content', 
+      type: 'image',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-green-400 to-blue-500'
+    },
+    { 
+      id: 6, 
+      title: t('commercialAd'), 
+      category: 'video', 
+      type: 'video',
+      image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop&crop=center',
+      gradient: 'from-yellow-400 to-orange-500'
+    }
   ];
 
   const filters = [
@@ -166,7 +208,7 @@ export function Portfolio() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={`${activeFilter}-${project.id}`}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer border border-gray-100 hover:border-primary-200"
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
@@ -176,7 +218,7 @@ export function Portfolio() {
                 whileHover={{ 
                   y: -10,
                   scale: 1.02,
-                  boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+                  boxShadow: "0 25px 50px rgba(124, 58, 237, 0.15)",
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.98 }}
@@ -186,52 +228,79 @@ export function Portfolio() {
                   scale: { duration: 0.3 }
                 }}
               >
-                {/* Project Image/Video Placeholder */}
+                {/* Project Image/Video */}
                 <motion.div 
-                  className="relative h-64 bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center overflow-hidden"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  className="relative h-64 overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0]
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling.style.display = 'flex';
                     }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.5
-                    }}
+                  />
+                  
+                  {/* Fallback gradient */}
+                  <div 
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+                    style={{ display: 'none' }}
                   >
                     {project.type === 'video' ? (
                       <Play className="w-16 h-16 text-white/80" />
                     ) : (
                       <Image className="w-16 h-16 text-white/80" />
                     )}
-                  </motion.div>
+                  </div>
+                  
+                  {/* Video Play Button */}
+                  {project.type === 'video' && (
+                    <motion.div 
+                      className="absolute inset-0 flex items-center justify-center"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.div
+                        className="bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-lg"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Play className="w-8 h-8 text-primary-600 ml-1" />
+                      </motion.div>
+                    </motion.div>
+                  )}
                   
                   {/* Overlay */}
                   <motion.div 
-                    className="absolute inset-0 bg-black/0 group-hover:bg-black/40 flex items-center justify-center"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-between p-4"
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      whileHover={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <span className="text-white text-sm font-medium bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                        {filters.find(f => f.id === project.category)?.label}
+                      </span>
+                    </motion.div>
+                    <motion.button 
+                      className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors"
                       initial={{ scale: 0, opacity: 0 }}
                       whileHover={{ scale: 1, opacity: 1 }}
+                      whileTap={{ scale: 0.9 }}
                       transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
                     >
-                      <motion.button 
-                        className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-colors"
-                        whileHover={{ scale: 1.1, rotate: 360 }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ExternalLink className="w-6 h-6" />
-                      </motion.button>
-                    </motion.div>
+                      <ExternalLink className="w-5 h-5" />
+                    </motion.button>
                   </motion.div>
                 </motion.div>
 
@@ -243,28 +312,26 @@ export function Portfolio() {
                   transition={{ delay: 0.2, duration: 0.6 }}
                 >
                   <motion.h3 
-                    className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors"
+                    className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors line-clamp-2"
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     {project.title}
                   </motion.h3>
                   <div className="flex items-center justify-between">
-                    <motion.span 
-                      className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
-                      whileHover={{ 
-                        backgroundColor: "rgb(239 246 255)",
-                        color: "rgb(37 99 235)"
-                      }}
-                    >
-                      {filters.find(f => f.id === project.category)?.label}
-                    </motion.span>
+                    <motion.div className="flex items-center gap-2">
+                      <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
+                      <span className="text-sm text-gray-500 font-medium">
+                        {project.type === 'video' ? '🎥' : '🎨'} {filters.find(f => f.id === project.category)?.label}
+                      </span>
+                    </motion.div>
                     <motion.button 
-                      className="text-primary-600 hover:text-primary-700 font-semibold text-sm"
+                      className="text-primary-600 hover:text-primary-700 font-semibold text-sm flex items-center gap-1"
                       whileHover={{ x: 5 }}
                       transition={{ type: "spring", stiffness: 400 }}
                     >
                       {t('viewDetails')}
+                      <ExternalLink className="w-3 h-3" />
                     </motion.button>
                   </div>
                 </motion.div>
@@ -281,30 +348,34 @@ export function Portfolio() {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <motion.button 
-            className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                "0 0 20px rgba(37, 99, 235, 0.3)",
-                "0 0 30px rgba(37, 99, 235, 0.5)",
-                "0 0 20px rgba(37, 99, 235, 0.3)"
-              ]
-            }}
-            transition={{
-              boxShadow: {
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
-            }}
-          >
-            {t('viewAllWork')}
-          </motion.button>
+          <motion.div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 max-w-2xl mx-auto">
+            <motion.h3 
+              className="text-2xl font-bold text-gray-900 mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              {t('readyToStart')}
+            </motion.h3>
+            <motion.p 
+              className="text-gray-600 mb-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              {t('portfolioCTA')}
+            </motion.p>
+            <motion.button 
+              className="bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 15px 35px rgba(124, 58, 237, 0.3)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {t('viewAllWork')}
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>

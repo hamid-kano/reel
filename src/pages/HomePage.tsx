@@ -9,6 +9,7 @@ import { About } from '../components/sections/About';
 import { Portfolio } from '../components/sections/Portfolio';
 import { Testimonials } from '../components/sections/Testimonials';
 import { Clients } from '../components/sections/Clients';
+import { ProjectSuccess } from '../components/sections/ProjectSuccess';
 import { Contact } from '../components/sections/Contact';
 import { Footer } from '../components/Footer';
 
@@ -25,6 +26,7 @@ export function HomePage() {
       <Portfolio />
       <Testimonials />
       <Clients />
+      <ProjectSuccess />
       <Contact />
       <Footer />
     </>

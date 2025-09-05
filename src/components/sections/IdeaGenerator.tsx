@@ -132,11 +132,11 @@ export function IdeaGenerator() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Lightbulb className="w-10 h-10 text-yellow-500" />
             <h2 className="text-4xl font-bold text-gray-900">
-              {t('language') === 'ar' ? 'مولد الأفكار الإعلانية' : 'Ad Ideas Generator'}
+              {t('ideaGeneratorTitle')}
             </h2>
           </div>
           <p className="text-xl text-gray-600">
-            {t('language') === 'ar' ? 'احصل على أفكار إبداعية لحملاتك الإعلانية' : 'Get creative ideas for your advertising campaigns'}
+            {t('ideaGeneratorDesc')}
           </p>
         </motion.div>
 
@@ -159,10 +159,7 @@ export function IdeaGenerator() {
             >
               <Shuffle className="w-6 h-6" />
             </motion.div>
-            {isGenerating 
-              ? (t('language') === 'ar' ? 'جاري التوليد...' : 'Generating...')
-              : (t('language') === 'ar' ? 'ولّد فكرة جديدة' : 'Generate New Idea')
-            }
+            {isGenerating ? t('generating') : t('generateNewIdea')}
           </motion.button>
         </motion.div>
 
@@ -203,7 +200,7 @@ export function IdeaGenerator() {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    {t('language') === 'ar' ? 'الهاشتاجات المقترحة' : 'Suggested Hashtags'}
+                    {t('suggestedHashtags')}
                   </h4>
                   <div className="flex items-center gap-2">
                     <code className="bg-gray-100 px-3 py-2 rounded-lg text-purple-600 font-medium">
@@ -223,7 +220,7 @@ export function IdeaGenerator() {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
-                    {t('language') === 'ar' ? 'المنصات المناسبة' : 'Suitable Platforms'}
+                    {t('suitablePlatforms')}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {currentIdea.platforms.map((platform, index) => (
@@ -249,14 +246,14 @@ export function IdeaGenerator() {
               >
                 <div className="text-center">
                   <p className="text-gray-600 mb-4">
-                    {t('language') === 'ar' ? 'أعجبتك الفكرة؟ دعنا نساعدك في تنفيذها!' : 'Like this idea? Let us help you implement it!'}
+                    {t('likeThisIdea')}
                   </p>
                   <motion.button
                     className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-xl font-semibold"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {t('language') === 'ar' ? 'تواصل معنا لتنفيذ الفكرة' : 'Contact Us to Implement'}
+                    {t('contactToImplement')}
                   </motion.button>
                 </div>
               </motion.div>
@@ -284,7 +281,7 @@ export function IdeaGenerator() {
               <Lightbulb className="w-24 h-24 text-yellow-400 mx-auto mb-4" />
             </motion.div>
             <p className="text-xl text-gray-500">
-              {t('language') === 'ar' ? 'اضغط على الزر لتوليد فكرة إبداعية!' : 'Click the button to generate a creative idea!'}
+              {t('clickToGenerate')}
             </p>
           </motion.div>
         )}

@@ -97,6 +97,17 @@ export const ar = {
   joinClientsTitle: 'انضم إلى عملائنا الناجحين',
   joinClientsDesc: 'كن جزءاً من قصص النجاح واتخذ الخطوة الأولى نحو تحقيق أهدافك الرقمية',
   
+  // Ideas Generator Section
+  ideaGeneratorTitle: 'مولد الأفكار الإعلانية',
+  ideaGeneratorDesc: 'احصل على أفكار إبداعية لحملاتك الإعلانية',
+  generateNewIdea: 'ولّد فكرة جديدة',
+  generating: 'جاري التوليد...',
+  suggestedHashtags: 'الهاشتاجات المقترحة',
+  suitablePlatforms: 'المنصات المناسبة',
+  likeThisIdea: 'أعجبتك الفكرة؟ دعنا نساعدك في تنفيذها!',
+  contactToImplement: 'تواصل معنا لتنفيذ الفكرة',
+  clickToGenerate: 'اضغط على الزر لتوليد فكرة إبداعية!',
+  
   // Common
   loading: 'جاري التحميل...',
   error: 'حدث خطأ',

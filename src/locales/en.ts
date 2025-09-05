@@ -97,6 +97,17 @@ export const en = {
   joinClientsTitle: 'Join Our Successful Clients',
   joinClientsDesc: 'Be part of success stories and take the first step towards achieving your digital goals',
   
+  // Ideas Generator Section
+  ideaGeneratorTitle: 'Ad Ideas Generator',
+  ideaGeneratorDesc: 'Get creative ideas for your advertising campaigns',
+  generateNewIdea: 'Generate New Idea',
+  generating: 'Generating...',
+  suggestedHashtags: 'Suggested Hashtags',
+  suitablePlatforms: 'Suitable Platforms',
+  likeThisIdea: 'Like this idea? Let us help you implement it!',
+  contactToImplement: 'Contact Us to Implement',
+  clickToGenerate: 'Click the button to generate a creative idea!',
+  
   // Common
   loading: 'Loading...',
   error: 'An error occurred',

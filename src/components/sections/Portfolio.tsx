@@ -117,10 +117,10 @@ export function Portfolio() {
   return (
     <motion.section 
       id="portfolio"
-      className="pt-32 pb-20 bg-gray-50"
+      className="pt-20 md:pt-32 pb-20 bg-gray-50"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,7 +129,7 @@ export function Portfolio() {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {t('portfolioTitle')}
@@ -138,7 +138,7 @@ export function Portfolio() {
             className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             {t('portfolioDesc')}
@@ -345,7 +345,7 @@ export function Portfolio() {
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           <motion.div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 max-w-2xl mx-auto">

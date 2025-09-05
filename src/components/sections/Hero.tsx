@@ -280,7 +280,7 @@ export function Hero() {
 
         {/* Stats */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-5xl mx-auto mt-8"
+          className="max-w-5xl mx-auto mt-8"
           variants={{
             hidden: { opacity: 0 },
             visible: {
@@ -292,48 +292,138 @@ export function Hero() {
             }
           }}
         >
-          {[
-            { icon: Target, number: '93+', labelKey: 'projectsCompleted' as const },
-            { icon: Zap, number: '14K+', labelKey: 'happyFollowers' as const },
-            { icon: Sparkles, number: '100%', labelKey: 'clientSatisfaction' as const }
-          ].map((stat, index) => (
-            <motion.div 
-              key={index} 
-              className="text-center px-4"
-              variants={{
-                hidden: { y: 50, opacity: 0 },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.8,
-                    ease: "easeOut"
+          {/* Mobile Layout */}
+          <div className="sm:hidden">
+            {/* First Row: Projects and Followers */}
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              {[
+                { icon: Target, number: '93+', labelKey: 'projectsCompleted' as const },
+                { icon: Zap, number: '14K+', labelKey: 'happyFollowers' as const }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={index} 
+                  className="text-center px-2"
+                  variants={{
+                    hidden: { y: 50, opacity: 0 },
+                    visible: {
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: 0.8,
+                        ease: "easeOut"
+                      }
+                    }
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <motion.div 
+                    className="inline-flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-sm rounded-full mb-3"
+                    whileHover={{ 
+                      backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      rotate: 360 
+                    }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <stat.icon className="w-6 h-6 text-secondary-400" />
+                  </motion.div>
+                  <motion.div 
+                    className="text-xl font-bold text-white mb-1"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 2 + index * 0.3, type: "spring", stiffness: 200 }}
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <div className="text-xs text-primary-200">{t(stat.labelKey)}</div>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Second Row: Client Satisfaction (Centered) */}
+            <div className="flex justify-center">
+              <motion.div 
+                className="text-center px-2"
+                variants={{
+                  hidden: { y: 50, opacity: 0 },
+                  visible: {
+                    y: 0,
+                    opacity: 1,
+                    transition: {
+                      duration: 0.8,
+                      ease: "easeOut"
+                    }
                   }
-                }
-              }}
-              whileHover={{ scale: 1.1 }}
-            >
-              <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-4"
-                whileHover={{ 
-                  backgroundColor: "rgba(255, 255, 255, 0.2)",
-                  rotate: 360 
                 }}
-                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.1 }}
               >
-                <stat.icon className="w-8 h-8 text-secondary-400" />
+                <motion.div 
+                  className="inline-flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-sm rounded-full mb-3"
+                  whileHover={{ 
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    rotate: 360 
+                  }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Sparkles className="w-6 h-6 text-secondary-400" />
+                </motion.div>
+                <motion.div 
+                  className="text-xl font-bold text-white mb-1"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 2.6, type: "spring", stiffness: 200 }}
+                >
+                  100%
+                </motion.div>
+                <div className="text-xs text-primary-200">{t('clientSatisfaction')}</div>
               </motion.div>
+            </div>
+          </div>
+          
+          {/* Desktop Layout */}
+          <div className="hidden sm:grid grid-cols-3 gap-8 sm:gap-12">
+            {[
+              { icon: Target, number: '93+', labelKey: 'projectsCompleted' as const },
+              { icon: Zap, number: '14K+', labelKey: 'happyFollowers' as const },
+              { icon: Sparkles, number: '100%', labelKey: 'clientSatisfaction' as const }
+            ].map((stat, index) => (
               <motion.div 
-                className="text-2xl sm:text-3xl font-bold text-white mb-2"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 2 + index * 0.3, type: "spring", stiffness: 200 }}
+                key={index} 
+                className="text-center px-4"
+                variants={{
+                  hidden: { y: 50, opacity: 0 },
+                  visible: {
+                    y: 0,
+                    opacity: 1,
+                    transition: {
+                      duration: 0.8,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+                whileHover={{ scale: 1.1 }}
               >
-                {stat.number}
+                <motion.div 
+                  className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-4"
+                  whileHover={{ 
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    rotate: 360 
+                  }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <stat.icon className="w-8 h-8 text-secondary-400" />
+                </motion.div>
+                <motion.div 
+                  className="text-2xl sm:text-3xl font-bold text-white mb-2"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 2 + index * 0.3, type: "spring", stiffness: 200 }}
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-sm sm:text-base text-primary-200">{t(stat.labelKey)}</div>
               </motion.div>
-              <div className="text-sm sm:text-base text-primary-200">{t(stat.labelKey)}</div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </motion.div>
       </div>
 

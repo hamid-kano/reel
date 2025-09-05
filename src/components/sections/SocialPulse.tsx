@@ -21,10 +21,26 @@ export function SocialPulse() {
   ]);
 
   const [trendingTopics, setTrendingTopics] = useState([
-    { topic: '#الذكاء_الاصطناعي', heat: 95 },
-    { topic: '#التسويق_الرقمي', heat: 87 },
-    { topic: '#ريادة_الأعمال', heat: 82 },
-    { topic: '#التجارة_الإلكترونية', heat: 78 }
+    { 
+      topicAr: '#الذكاء_الاصطناعي', 
+      topicEn: '#ArtificialIntelligence', 
+      heat: 95 
+    },
+    { 
+      topicAr: '#التسويق_الرقمي', 
+      topicEn: '#DigitalMarketing', 
+      heat: 87 
+    },
+    { 
+      topicAr: '#ريادة_الأعمال', 
+      topicEn: '#Entrepreneurship', 
+      heat: 82 
+    },
+    { 
+      topicAr: '#التجارة_الإلكترونية', 
+      topicEn: '#Ecommerce', 
+      heat: 78 
+    }
   ]);
 
   // Simulate real-time updates
@@ -248,7 +264,7 @@ export function SocialPulse() {
                       }}
                     />
                     <span className="text-white font-medium">
-                      {trend.topic}
+                      {t('language') === 'ar' ? trend.topicAr : trend.topicEn}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">

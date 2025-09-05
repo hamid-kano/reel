@@ -132,15 +132,16 @@ export function Testimonials() {
           variants={itemVariants}
         >
           <motion.div 
-            className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 relative overflow-hidden"
+            className="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 rounded-3xl shadow-2xl p-8 md:p-12 relative overflow-hidden border border-white/50 backdrop-blur-sm"
             whileHover={{ 
               scale: 1.02,
-              boxShadow: "0 30px 60px rgba(0, 0, 0, 0.15)"
+              boxShadow: "0 30px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.5)"
             }}
             transition={{ duration: 0.3 }}
           >
+            {/* Decorative Elements */}
             <motion.div 
-              className="absolute top-6 left-6 text-primary-200"
+              className="absolute top-6 left-6 text-primary-200/60"
               animate={{
                 rotate: [0, 10, -10, 0],
                 scale: [1, 1.1, 1]
@@ -153,6 +154,73 @@ export function Testimonials() {
             >
               <Quote className="w-16 h-16" />
             </motion.div>
+            
+            {/* Floating Particles */}
+            <motion.div 
+              className="absolute top-4 right-8 w-2 h-2 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full"
+              animate={{
+                y: [0, -10, 0],
+                opacity: [0.3, 1, 0.3]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div 
+              className="absolute top-12 right-4 w-1 h-1 bg-gradient-to-r from-secondary-400 to-primary-400 rounded-full"
+              animate={{
+                y: [0, -8, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            />
+            <motion.div 
+              className="absolute bottom-8 left-4 w-1.5 h-1.5 bg-gradient-to-r from-primary-300 to-secondary-300 rounded-full"
+              animate={{
+                y: [0, -6, 0],
+                opacity: [0.4, 0.8, 0.4]
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+            />
+            
+            {/* Gradient Orbs */}
+            <motion.div 
+              className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-primary-200/20 to-secondary-200/20 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360]
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div 
+              className="absolute -bottom-16 -left-16 w-32 h-32 bg-gradient-to-br from-secondary-200/20 to-primary-200/20 rounded-full blur-2xl"
+              animate={{
+                scale: [1, 1.3, 1],
+                rotate: [360, 180, 0]
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2
+              }}
+            />
             
             <div className="relative z-10 text-center">
               <AnimatePresence mode="wait">
@@ -203,15 +271,34 @@ export function Testimonials() {
                     transition={{ delay: 0.6, duration: 0.6 }}
                   >
                     <motion.div 
-                      className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
+                      className="relative"
                     >
-                      <img 
-                        src={testimonials[currentIndex].image}
-                        alt={t('language') === 'ar' ? testimonials[currentIndex].nameAr : testimonials[currentIndex].nameEn}
-                        className="w-full h-full object-cover"
+                      {/* Decorative Ring */}
+                      <motion.div 
+                        className="absolute -inset-2 bg-gradient-to-r from-primary-400 via-secondary-400 to-primary-400 rounded-full opacity-20"
+                        animate={{
+                          rotate: [0, 360]
+                        }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
                       />
+                      <motion.div 
+                        className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-xl relative z-10 bg-gradient-to-br from-primary-50 to-secondary-50"
+                        whileHover={{ 
+                          scale: 1.1,
+                          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img 
+                          src={testimonials[currentIndex].image}
+                          alt={t('language') === 'ar' ? testimonials[currentIndex].nameAr : testimonials[currentIndex].nameEn}
+                          className="w-full h-full object-cover"
+                        />
+                      </motion.div>
                     </motion.div>
                     <div className="text-start">
                       <motion.div 

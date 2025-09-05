@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Building2, ShoppingBag, Utensils, Heart, Laptop, GraduationCap, TrendingUp, Hammer, Users, Award, Clock, Star } from 'lucide-react';
+import { Users, Award, Clock, Star, Heart, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -79,14 +79,14 @@ export function Clients() {
   }, []);
 
   const clients = [
-    { nameAr: 'شركة النور', nameEn: 'Al Nour Company', icon: Building2, color: 'from-blue-500 to-blue-600', growth: '+45%' },
-    { nameAr: 'مطعم الذوق الرفيع', nameEn: 'Fine Taste Restaurant', icon: Utensils, color: 'from-orange-500 to-red-500', growth: '+78%' },
-    { nameAr: 'متجر الأناقة', nameEn: 'Elegance Store', icon: ShoppingBag, color: 'from-pink-500 to-purple-500', growth: '+92%' },
-    { nameAr: 'مركز الصحة', nameEn: 'Health Center', icon: Heart, color: 'from-green-500 to-emerald-500', growth: '+65%' },
-    { nameAr: 'شركة التقنية', nameEn: 'Tech Company', icon: Laptop, color: 'from-indigo-500 to-blue-500', growth: '+120%' },
-    { nameAr: 'معهد التعليم', nameEn: 'Education Institute', icon: GraduationCap, color: 'from-yellow-500 to-orange-500', growth: '+55%' },
-    { nameAr: 'مجموعة الاستثمار', nameEn: 'Investment Group', icon: TrendingUp, color: 'from-teal-500 to-cyan-500', growth: '+89%' },
-    { nameAr: 'شركة البناء', nameEn: 'Construction Company', icon: Hammer, color: 'from-gray-600 to-gray-700', growth: '+34%' }
+    { nameAr: 'شركة النور', nameEn: 'Al Nour Company', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop&crop=center', growth: '+45%' },
+    { nameAr: 'مطعم الذوق الرفيع', nameEn: 'Fine Taste Restaurant', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=400&fit=crop&crop=center', growth: '+78%' },
+    { nameAr: 'متجر الأناقة', nameEn: 'Elegance Store', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center', growth: '+92%' },
+    { nameAr: 'مركز الصحة', nameEn: 'Health Center', image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=400&fit=crop&crop=center', growth: '+65%' },
+    { nameAr: 'شركة التقنية', nameEn: 'Tech Company', image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center', growth: '+120%' },
+    { nameAr: 'معهد التعليم', nameEn: 'Education Institute', image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=400&fit=crop&crop=center', growth: '+55%' },
+    { nameAr: 'مجموعة الاستثمار', nameEn: 'Investment Group', image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=400&fit=crop&crop=center', growth: '+89%' },
+    { nameAr: 'شركة البناء', nameEn: 'Construction Company', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=400&fit=crop&crop=center', growth: '+34%' }
   ];
 
   return (
@@ -134,7 +134,6 @@ export function Clients() {
           }}
         >
           {clients.map((client, index) => {
-            const IconComponent = client.icon;
             return (
               <motion.div
                 key={index}
@@ -161,10 +160,10 @@ export function Clients() {
               >
                 <div className="text-center">
                   <motion.div 
-                    className={`w-16 h-16 bg-gradient-to-r ${client.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}
+                    className="w-16 h-16 rounded-2xl overflow-hidden mx-auto mb-4 shadow-lg"
                     whileHover={{ 
                       scale: 1.2,
-                      rotate: 360,
+                      rotate: 5,
                       transition: { duration: 0.6 }
                     }}
                     animate={{
@@ -183,7 +182,12 @@ export function Clients() {
                       }
                     }}
                   >
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <img 
+                      src={client.image} 
+                      alt={t('language') === 'ar' ? client.nameAr : client.nameEn}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </motion.div>
                   <motion.h3 
                     className="font-semibold text-gray-800 text-sm group-hover:text-primary-600 transition-colors mb-2"

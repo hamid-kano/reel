@@ -94,6 +94,9 @@ export const en = {
   projectsDelivered: 'Projects Delivered',
   satisfactionRate: 'Satisfaction Rate',
   support: 'Continuous Support',
+  yearsExperience: 'Years Experience',
+  socialFollowers: 'Social Followers',
+  campaignsLaunched: 'Campaigns Launched',
   joinClientsTitle: 'Join Our Successful Clients',
   joinClientsDesc: 'Be part of success stories and take the first step towards achieving your digital goals',
   

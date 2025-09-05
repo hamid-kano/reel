@@ -94,6 +94,9 @@ export const ar = {
   projectsDelivered: 'مشروع مُسلم',
   satisfactionRate: 'معدل الرضا',
   support: 'دعم مستمر',
+  yearsExperience: 'سنوات خبرة',
+  socialFollowers: 'متابع على السوشيال',
+  campaignsLaunched: 'حملة مُنفذة',
   joinClientsTitle: 'انضم إلى عملائنا الناجحين',
   joinClientsDesc: 'كن جزءاً من قصص النجاح واتخذ الخطوة الأولى نحو تحقيق أهدافك الرقمية',
   

@@ -52,69 +52,66 @@ export function About() {
     >
       {/* خلفية زخرفية متحركة */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* دوائر متحركة */}
+        {/* دوائر متحركة - مخفية على الشاشات الصغيرة */}
         <motion.div 
-          className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-primary-200/20 to-secondary-200/20 rounded-full blur-3xl"
+          className="hidden md:block absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-primary-200/20 to-secondary-200/20 rounded-full blur-3xl"
           animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-            opacity: [0.3, 0.6, 0.3]
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.4, 0.2]
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-tr from-secondary-300/20 to-primary-300/20 rounded-full blur-2xl"
+          className="hidden md:block absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-tr from-secondary-300/20 to-primary-300/20 rounded-full blur-2xl"
           animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-            opacity: [0.4, 0.2, 0.4]
+            scale: [1.1, 1, 1.1],
+            opacity: [0.3, 0.1, 0.3]
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* أشكال هندسية متحركة */}
+        {/* أشكال هندسية متحركة - مخفية على الشاشات الصغيرة */}
         <motion.div 
-          className="absolute top-1/4 right-1/4 w-4 h-4 bg-primary-400 rounded-full"
+          className="hidden lg:block absolute top-1/4 right-1/4 w-4 h-4 bg-primary-400 rounded-full"
           animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-            scale: [1, 1.5, 1]
-          }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute top-3/4 left-1/3 w-6 h-6 bg-secondary-400 rotate-45"
-          animate={{
-            rotate: [45, 225, 45],
-            scale: [1, 0.8, 1]
+            y: [-10, 10, -10],
+            scale: [1, 1.2, 1]
           }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary-500 rounded-full"
+          className="hidden lg:block absolute top-3/4 left-1/3 w-6 h-6 bg-secondary-400 rotate-45"
           animate={{
-            y: [0, -30, 0],
-            opacity: [1, 0.3, 1]
+            rotate: [45, 135, 45],
+            scale: [1, 0.9, 1]
           }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="hidden lg:block absolute top-1/2 right-1/3 w-3 h-3 bg-primary-500 rounded-full"
+          animate={{
+            y: [0, -15, 0],
+            opacity: [0.8, 0.4, 0.8]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
-        {/* خطوط زخرفية */}
+        {/* خطوط زخرفية - مخفية على الشاشات الصغيرة */}
         <motion.div 
-          className="absolute top-20 left-10 w-32 h-0.5 bg-gradient-to-r from-primary-300 to-transparent"
+          className="hidden md:block absolute top-20 left-10 w-32 h-0.5 bg-gradient-to-r from-primary-300 to-transparent"
           animate={{
             scaleX: [0, 1, 0],
-            opacity: [0, 1, 0]
+            opacity: [0, 0.6, 0]
           }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
         <motion.div 
-          className="absolute bottom-32 right-20 w-24 h-0.5 bg-gradient-to-l from-secondary-300 to-transparent"
+          className="hidden md:block absolute bottom-32 right-20 w-24 h-0.5 bg-gradient-to-l from-secondary-300 to-transparent"
           animate={{
             scaleX: [0, 1, 0],
-            opacity: [0, 1, 0]
+            opacity: [0, 0.6, 0]
           }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,9 +128,9 @@ export function About() {
               <motion.div
                 animate={{
                   rotate: [0, 360],
-                  scale: [1, 1.1, 1]
+                  scale: [1, 1.05, 1]
                 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Megaphone className="w-5 h-5 text-primary-600" />
               </motion.div>
@@ -141,10 +138,10 @@ export function About() {
               <motion.div
                 className="w-2 h-2 bg-secondary-400 rounded-full"
                 animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [1, 0.5, 1]
+                  scale: [1, 1.2, 1],
+                  opacity: [0.8, 0.4, 0.8]
                 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
             
@@ -156,12 +153,12 @@ export function About() {
                 {t('aboutTitle')}
               </span>
               <motion.div
-                className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full opacity-20"
+                className="hidden md:block absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full opacity-20"
                 animate={{
-                  scale: [1, 1.3, 1],
+                  scale: [1, 1.15, 1],
                   rotate: [0, 180, 360]
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.h2>
             
@@ -218,11 +215,11 @@ export function About() {
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div
-                      className="absolute inset-0 bg-white/20 rounded-xl"
+                      className="hidden md:block absolute inset-0 bg-white/20 rounded-xl"
                       animate={{
-                        opacity: [0, 0.3, 0]
+                        opacity: [0, 0.2, 0]
                       }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.8 }}
                     />
                     <item.icon className="w-6 h-6 text-white relative z-10" />
                   </motion.div>
@@ -251,32 +248,32 @@ export function About() {
             className="relative"
             variants={cardVariants}
           >
-            {/* عناصر زخرفية حول البطاقة */}
+            {/* عناصر زخرفية حول البطاقة - مخفية على الشاشات الصغيرة */}
             <motion.div 
-              className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-primary-300/30 to-secondary-300/30 rounded-full blur-xl"
+              className="hidden md:block absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-primary-300/30 to-secondary-300/30 rounded-full blur-xl"
               animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.3, 0.6, 0.3]
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.4, 0.2]
               }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div 
-              className="absolute -bottom-6 -right-6 w-12 h-12 bg-gradient-to-tl from-secondary-400/40 to-primary-400/40 rounded-full blur-lg"
+              className="hidden md:block absolute -bottom-6 -right-6 w-12 h-12 bg-gradient-to-tl from-secondary-400/40 to-primary-400/40 rounded-full blur-lg"
               animate={{
-                scale: [1.2, 1, 1.2],
-                opacity: [0.4, 0.7, 0.4]
+                scale: [1.1, 1, 1.1],
+                opacity: [0.3, 0.5, 0.3]
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             
-            {/* أيقونات متحركة */}
+            {/* أيقونات متحركة - مخفية على الشاشات الصغيرة */}
             <motion.div 
-              className="absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center"
+              className="hidden lg:block absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center"
               animate={{
                 rotate: [0, 360],
-                scale: [1, 1.2, 1]
+                scale: [1, 1.1, 1]
               }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
             >
               <Zap className="w-4 h-4 text-yellow-300" />
             </motion.div>
@@ -320,19 +317,9 @@ export function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                <motion.h3 
-                  className="text-2xl font-bold mb-4"
-                  animate={{ 
-                    textShadow: [
-                      "0 0 10px rgba(255, 255, 255, 0.5)",
-                      "0 0 20px rgba(255, 255, 255, 0.8)",
-                      "0 0 10px rgba(255, 255, 255, 0.5)"
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
+                <h3 className="text-2xl font-bold mb-4">
                   {t('vision')}
-                </motion.h3>
+                </h3>
                 <motion.p 
                   className="text-primary-100 leading-relaxed"
                   initial={{ opacity: 0 }}
@@ -389,45 +376,43 @@ export function About() {
               </motion.div>
             </motion.div>
             
-            {/* تأثيرات الخلفية المحسنة */}
+            {/* تأثيرات الخلفية المحسنة - مخفية على الشاشات الصغيرة */}
             <motion.div 
-              className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-secondary-400/30 to-primary-400/30 rounded-full blur-2xl"
+              className="hidden lg:block absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-secondary-400/30 to-primary-400/30 rounded-full blur-2xl"
               animate={{
-                scale: [1, 1.3, 1],
-                rotate: [0, 180, 360],
-                opacity: [0.2, 0.4, 0.2]
-              }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div 
-              className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-tr from-primary-400/25 to-secondary-400/25 rounded-full blur-3xl"
-              animate={{
-                scale: [1.2, 1, 1.2],
-                rotate: [360, 180, 0],
-                opacity: [0.15, 0.3, 0.15]
+                scale: [1, 1.15, 1],
+                opacity: [0.1, 0.25, 0.1]
               }}
               transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
             />
-            
-            {/* عناصر إضافية للدعاية والإعلان */}
             <motion.div 
-              className="absolute top-1/2 -left-4 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg"
+              className="hidden lg:block absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-tr from-primary-400/25 to-secondary-400/25 rounded-full blur-3xl"
               animate={{
-                x: [-16, 0, -16],
-                rotate: [0, 360, 0]
+                scale: [1.1, 1, 1.1],
+                opacity: [0.1, 0.2, 0.1]
               }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* عناصر إضافية للدعاية والإعلان - مخفية على الشاشات الصغيرة */}
+            <motion.div 
+              className="hidden xl:flex absolute top-1/2 -left-4 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full items-center justify-center shadow-lg"
+              animate={{
+                x: [-8, 0, -8],
+                rotate: [0, 180, 0]
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
               <Star className="w-4 h-4 text-white" />
             </motion.div>
             
             <motion.div 
-              className="absolute bottom-1/4 -right-4 w-6 h-6 bg-gradient-to-l from-green-400 to-blue-400 rounded-full flex items-center justify-center shadow-lg"
+              className="hidden xl:flex absolute bottom-1/4 -right-4 w-6 h-6 bg-gradient-to-l from-green-400 to-blue-400 rounded-full items-center justify-center shadow-lg"
               animate={{
-                x: [16, 0, 16],
-                scale: [1, 1.2, 1]
+                x: [8, 0, 8],
+                scale: [1, 1.1, 1]
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
               <TrendingUp className="w-3 h-3 text-white" />
             </motion.div>

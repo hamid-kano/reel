@@ -55,36 +55,36 @@ export function ProjectSuccess() {
       titleAr: 'معدل نجاح المشاريع',
       titleEn: 'Project Success Rate',
       value: animatedValues.projectSuccess,
-      color: 'from-green-400 to-emerald-500',
-      bgColor: 'bg-green-50',
-      iconColor: 'text-green-600'
+      color: 'from-primary-400 to-primary-600',
+      bgColor: 'bg-primary-50',
+      iconColor: 'text-primary-600'
     },
     {
       icon: TrendingUp,
       titleAr: 'الاحتفاظ بالعملاء',
       titleEn: 'Client Retention',
       value: animatedValues.clientRetention,
-      color: 'from-blue-400 to-cyan-500',
-      bgColor: 'bg-blue-50',
-      iconColor: 'text-blue-600'
+      color: 'from-secondary-400 to-secondary-600',
+      bgColor: 'bg-secondary-50',
+      iconColor: 'text-secondary-600'
     },
     {
       icon: Target,
       titleAr: 'التسليم في الوقت',
       titleEn: 'On-Time Delivery',
       value: animatedValues.onTimeDelivery,
-      color: 'from-purple-400 to-indigo-500',
-      bgColor: 'bg-purple-50',
-      iconColor: 'text-purple-600'
+      color: 'from-primary-500 to-secondary-500',
+      bgColor: 'bg-primary-50',
+      iconColor: 'text-primary-700'
     },
     {
       icon: Award,
       titleAr: 'درجة الجودة',
       titleEn: 'Quality Score',
       value: animatedValues.qualityScore,
-      color: 'from-orange-400 to-red-500',
-      bgColor: 'bg-orange-50',
-      iconColor: 'text-orange-600'
+      color: 'from-secondary-500 to-primary-500',
+      bgColor: 'bg-secondary-50',
+      iconColor: 'text-secondary-700'
     }
   ];
 
@@ -221,14 +221,10 @@ export function ProjectSuccess() {
                   <defs>
                     <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor={
-                        metric.iconColor.includes('green') ? '#10b981' : 
-                        metric.iconColor.includes('blue') ? '#3b82f6' :
-                        metric.iconColor.includes('purple') ? '#8b5cf6' : '#f97316'
+                        metric.iconColor.includes('primary') ? '#7c3aed' : '#22c55e'
                       } />
                       <stop offset="100%" stopColor={
-                        metric.iconColor.includes('green') ? '#059669' : 
-                        metric.iconColor.includes('blue') ? '#1d4ed8' :
-                        metric.iconColor.includes('purple') ? '#7c3aed' : '#ea580c'
+                        metric.iconColor.includes('primary') ? '#5b21b6' : '#16a34a'
                       } />
                     </linearGradient>
                   </defs>

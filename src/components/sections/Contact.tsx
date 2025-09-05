@@ -333,7 +333,7 @@ export function Contact() {
               
               <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
+                className={`w-full bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white px-6 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center ${t('language') === 'ar' ? 'gap-3' : 'space-x-2'}`}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: {

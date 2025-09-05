@@ -195,7 +195,7 @@ export function Services() {
             >
               {/* Glassmorphism Card */}
               <motion.div 
-                className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-white/30 overflow-hidden h-72 flex flex-col shadow-lg"
+                className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-white/30 overflow-hidden h-56 flex flex-col shadow-lg"
                 style={{
                   background: `linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)`,
                   direction: t('language') === 'ar' ? 'rtl' : 'ltr'

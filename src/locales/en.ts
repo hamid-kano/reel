@@ -78,6 +78,7 @@ export const en = {
   send: 'Send Message',
   
   // Footer
+  companyName: 'Reel Advertising Agency',
   companyDesc: 'Reel Advertising Agency - We provide comprehensive creative solutions for social media management, designs, video editing and content creation.',
   quickLinks: 'Quick Links',
   contactInfoFooter: 'Contact Information',

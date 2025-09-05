@@ -71,7 +71,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 ريل للدعاية والإعلان. {t('allRightsReserved')}
+            © {new Date().getFullYear()} {t('companyName')}. {t('allRightsReserved')}
           </p>
         </div>
       </div>

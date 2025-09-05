@@ -12,6 +12,19 @@
   50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.6); }
 }
 
+@keyframes advertising-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4), 0 0 40px rgba(34, 197, 94, 0.2);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.8), 0 0 80px rgba(34, 197, 94, 0.4);
+    transform: scale(1.05);
+  }
+}
+
+.animate-advertising-pulse { animation: advertising-pulse 2s ease-in-out infinite; }
+
 @keyframes slideInLeft {
   from { transform: translateX(-100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
@@ -35,6 +48,7 @@
 
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-glow { animation: glow 2s ease-in-out infinite; }
+.animate-advertising-glow { animation: advertising-pulse 2s ease-in-out infinite; }
 .animate-slide-in-left { animation: slideInLeft 0.8s ease-out; }
 .animate-slide-in-right { animation: slideInRight 0.8s ease-out; }
 
@@ -43,6 +57,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* نصوص متدرجة عصرية للدعاية */
+.gradient-text-advertising {
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.gradient-text-glow {
+  background: linear-gradient(135deg, #7C3AED, #22C55E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.3));
 }
 
 /* RTL/LTR Auto Alignment */
@@ -105,6 +137,117 @@ section {
   font-family: 'ReadexPro', 'Cairo', sans-serif;
 }
 
+/* زخارف وتأثيرات عصرية للدعاية والإعلان */
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(34, 197, 94, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) rotate(5deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes floating-elements {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-sparkle { animation: sparkle 2s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-gradient-shift { 
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+.animate-bounce-in { animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.animate-floating-elements { animation: floating-elements 6s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* تأثيرات الهوفر المحسنة */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* تدرجات لونية عصرية */
+.gradient-advertising {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-marketing {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-creative {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient-modern {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
 /* Mobile Sidebar Animations */
 @keyframes slideInFromLeft {
   from { transform: translateX(-100%); }
@@ -162,5 +305,62 @@ section {
   
   .sidebar-scroll::-webkit-scrollbar-thumb:hover {
     background: rgba(124, 58, 237, 0.5);
+  }
+  
+  /* تحسينات للزخارف على الموبايل */
+  .mobile-decorations {
+    transform: scale(0.8);
+  }
+  
+  .mobile-reduce-motion {
+    animation-duration: 0.5s !important;
+  }
+}
+
+/* تأثيرات خاصة للدعاية والإعلان */
+.advertising-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.advertising-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+  animation: rotate 4s linear infinite;
+}
+
+.advertising-glow::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: inherit;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* نقاط متحركة للخلفية */
+.animated-dots {
+  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: dots-move 20s linear infinite;
+}
+
+@keyframes dots-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
   }
 }

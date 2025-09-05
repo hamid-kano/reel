@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Lightbulb, MapPin } from 'lucide-react';
+import { Award, Users, Lightbulb, MapPin, Megaphone, TrendingUp, Zap, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -44,29 +44,125 @@ export function About() {
   return (
     <motion.section 
       id="about"
-      className="pt-32 pb-20 bg-white"
+      className="pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-primary-50/30 relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
+      {/* خلفية زخرفية متحركة */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* دوائر متحركة */}
+        <motion.div 
+          className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-primary-200/20 to-secondary-200/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div 
+          className="absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-tr from-secondary-300/20 to-primary-300/20 rounded-full blur-2xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+            opacity: [0.4, 0.2, 0.4]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        />
+        
+        {/* أشكال هندسية متحركة */}
+        <motion.div 
+          className="absolute top-1/4 right-1/4 w-4 h-4 bg-primary-400 rounded-full"
+          animate={{
+            y: [-20, 20, -20],
+            x: [-10, 10, -10],
+            scale: [1, 1.5, 1]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute top-3/4 left-1/3 w-6 h-6 bg-secondary-400 rotate-45"
+          animate={{
+            rotate: [45, 225, 45],
+            scale: [1, 0.8, 1]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary-500 rounded-full"
+          animate={{
+            y: [0, -30, 0],
+            opacity: [1, 0.3, 1]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* خطوط زخرفية */}
+        <motion.div 
+          className="absolute top-20 left-10 w-32 h-0.5 bg-gradient-to-r from-primary-300 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 1, 0]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.div 
+          className="absolute bottom-32 right-20 w-24 h-0.5 bg-gradient-to-l from-secondary-300 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 1, 0]
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div variants={itemVariants}>
             <motion.div 
-              className="inline-flex items-center gap-2 bg-primary-50 rounded-full px-4 py-2 mb-6"
-              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-50 to-secondary-50 rounded-full px-6 py-3 mb-6 border border-primary-200/50 shadow-lg backdrop-blur-sm"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px rgba(124, 58, 237, 0.15)"
+              }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <Award className="w-5 h-5 text-primary-600" />
+              <motion.div
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Megaphone className="w-5 h-5 text-primary-600" />
+              </motion.div>
               <span className="text-primary-700 font-medium">{t('aboutBadge')}</span>
+              <motion.div
+                className="w-2 h-2 bg-secondary-400 rounded-full"
+                animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [1, 0.5, 1]
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
             </motion.div>
             
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-4xl md:text-5xl font-bold mb-6 leading-tight relative"
               variants={itemVariants}
             >
-              {t('aboutTitle')}
+              <span className="bg-gradient-to-r from-gray-900 via-primary-700 to-secondary-600 bg-clip-text text-transparent">
+                {t('aboutTitle')}
+              </span>
+              <motion.div
+                className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full opacity-20"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
             </motion.h2>
             
             <motion.p 
@@ -90,10 +186,10 @@ export function About() {
               }}
             >
               {[
-                { icon: Users, title: '14K+', desc: t('clientTrust') },
-                { icon: Lightbulb, title: '93+', desc: t('successfulProjects') },
-                { icon: Award, title: '100%', desc: t('clientSatisfaction') },
-                { icon: MapPin, title: t('location').split(' - ')[0], desc: t('location').split(' - ')[1] }
+                { icon: Users, title: '14K+', desc: t('clientTrust'), color: 'from-blue-500 to-primary-500' },
+                { icon: TrendingUp, title: '93+', desc: t('successfulProjects'), color: 'from-green-500 to-secondary-500' },
+                { icon: Star, title: '100%', desc: t('clientSatisfaction'), color: 'from-yellow-500 to-orange-500' },
+                { icon: MapPin, title: t('location').split(' - ')[0], desc: t('location').split(' - ')[1], color: 'from-purple-500 to-pink-500' }
               ].map((item, index) => (
                 <motion.div 
                   key={index} 
@@ -113,14 +209,22 @@ export function About() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <motion.div 
-                    className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                    className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg relative overflow-hidden`}
                     whileHover={{ 
-                      backgroundColor: "rgb(239 246 255)",
-                      scale: 1.1
+                      scale: 1.15,
+                      rotate: 5,
+                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)"
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <item.icon className="w-6 h-6 text-primary-600" />
+                    <motion.div
+                      className="absolute inset-0 bg-white/20 rounded-xl"
+                      animate={{
+                        opacity: [0, 0.3, 0]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
+                    />
+                    <item.icon className="w-6 h-6 text-white relative z-10" />
                   </motion.div>
                   <div>
                     <div className="font-bold text-gray-900">{item.title}</div>
@@ -147,14 +251,68 @@ export function About() {
             className="relative"
             variants={cardVariants}
           >
+            {/* عناصر زخرفية حول البطاقة */}
             <motion.div 
-              className="relative z-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl p-8 text-white"
+              className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-primary-300/30 to-secondary-300/30 rounded-full blur-xl"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.6, 0.3]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="absolute -bottom-6 -right-6 w-12 h-12 bg-gradient-to-tl from-secondary-400/40 to-primary-400/40 rounded-full blur-lg"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.4, 0.7, 0.4]
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* أيقونات متحركة */}
+            <motion.div 
+              className="absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center"
+              animate={{
+                rotate: [0, 360],
+                scale: [1, 1.2, 1]
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            >
+              <Zap className="w-4 h-4 text-yellow-300" />
+            </motion.div>
+            
+            <motion.div 
+              className="relative z-10 bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-500 rounded-3xl p-8 text-white shadow-2xl border border-white/10 backdrop-blur-sm overflow-hidden"
               whileHover={{ 
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
+                boxShadow: "0 25px 50px rgba(124, 58, 237, 0.25)"
               }}
               transition={{ duration: 0.3 }}
             >
+              {/* نمط زخرفي داخلي */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full">
+                  {[...Array(20)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1 h-1 bg-white rounded-full"
+                      style={{
+                        top: `${Math.random() * 100}%`,
+                        left: `${Math.random() * 100}%`
+                      }}
+                      animate={{
+                        opacity: [0, 1, 0],
+                        scale: [0, 1, 0]
+                      }}
+                      transition={{
+                        duration: 2 + Math.random() * 2,
+                        repeat: Infinity,
+                        delay: Math.random() * 2
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
               <motion.div 
                 className="text-center mb-8"
                 initial={{ opacity: 0, y: 20 }}
@@ -231,8 +389,48 @@ export function About() {
               </motion.div>
             </motion.div>
             
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-secondary-400/20 rounded-full blur-xl opacity-30" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-400/20 rounded-full blur-xl opacity-20" />
+            {/* تأثيرات الخلفية المحسنة */}
+            <motion.div 
+              className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-secondary-400/30 to-primary-400/30 rounded-full blur-2xl"
+              animate={{
+                scale: [1, 1.3, 1],
+                rotate: [0, 180, 360],
+                opacity: [0.2, 0.4, 0.2]
+              }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-tr from-primary-400/25 to-secondary-400/25 rounded-full blur-3xl"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                rotate: [360, 180, 0],
+                opacity: [0.15, 0.3, 0.15]
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            />
+            
+            {/* عناصر إضافية للدعاية والإعلان */}
+            <motion.div 
+              className="absolute top-1/2 -left-4 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-lg"
+              animate={{
+                x: [-16, 0, -16],
+                rotate: [0, 360, 0]
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Star className="w-4 h-4 text-white" />
+            </motion.div>
+            
+            <motion.div 
+              className="absolute bottom-1/4 -right-4 w-6 h-6 bg-gradient-to-l from-green-400 to-blue-400 rounded-full flex items-center justify-center shadow-lg"
+              animate={{
+                x: [16, 0, 16],
+                scale: [1, 1.2, 1]
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <TrendingUp className="w-3 h-3 text-white" />
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Phone, MapPin, MessageCircle, Send, Instagram, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { CustomSelect } from '../ui/CustomSelect';
 
 export function Contact() {
   const { t } = useLanguage();
@@ -288,8 +289,7 @@ export function Contact() {
                 }}
               />
               
-              <motion.select 
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-secondary-400 transition-colors"
+              <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: {
@@ -298,19 +298,20 @@ export function Contact() {
                     transition: { duration: 0.6 }
                   }
                 }}
-                whileFocus={{ 
-                  scale: 1.02,
-                  borderColor: "rgb(74 222 128)",
-                  boxShadow: "0 0 20px rgba(74, 222, 128, 0.3)"
-                }}
               >
-                <option value="">{t('selectService')}</option>
-                <option value="social">{t('socialMedia')}</option>
-                <option value="design">{t('design')}</option>
-                <option value="video">{t('video')}</option>
-                <option value="content">{t('content')}</option>
-                <option value="ads">{t('campaigns')}</option>
-              </motion.select>
+                <CustomSelect
+                  value=""
+                  onChange={() => {}}
+                  placeholder={t('selectService')}
+                  options={[
+                    { value: 'social', label: t('socialMedia') },
+                    { value: 'design', label: t('design') },
+                    { value: 'video', label: t('video') },
+                    { value: 'content', label: t('content') },
+                    { value: 'ads', label: t('campaigns') }
+                  ]}
+                />
+              </motion.div>
               
               <motion.textarea
                 rows={4}

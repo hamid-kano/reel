@@ -32,7 +32,6 @@ export const en = {
   campaignsDesc: 'Strategic advertising approaches to achieve maximum return on investment',
   analytics: 'Analytics & Reports',
   analyticsDesc: 'Comprehensive performance analysis and detailed reports to measure success',
-  learnMore: 'Learn More',
   
   // About Section
   aboutBadge: 'About Us',

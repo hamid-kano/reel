@@ -195,15 +195,15 @@ export function Services() {
             >
               {/* Glassmorphism Card */}
               <motion.div 
-                className="relative bg-white/10 backdrop-blur-2xl rounded-3xl p-8 border border-white/20 overflow-hidden h-80 flex flex-col"
+                className="relative bg-white/80 backdrop-blur-xl rounded-2xl p-6 border border-white/30 overflow-hidden h-72 flex flex-col shadow-lg"
                 style={{
-                  background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                  background: `linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)`,
                   direction: t('language') === 'ar' ? 'rtl' : 'ltr'
                 }}
                 whileHover={{
-                  background: `linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.1) 100%)`,
-                  borderColor: "rgba(255,255,255,0.3)",
-                  boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                  background: `linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%)`,
+                  borderColor: "rgba(255,255,255,0.5)",
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3)"
                 }}
               >
                 {/* Gradient Orb */}
@@ -223,56 +223,23 @@ export function Services() {
                 
                 {/* Icon Container */}
                 <motion.div 
-                  className="relative mb-6 flex items-center justify-center"
+                  className="relative mb-5 flex items-center justify-center"
                 >
                   <motion.div 
-                    className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center shadow-xl`}
+                    className={`w-14 h-14 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center shadow-lg`}
                     whileHover={{ 
-                      scale: 1.1,
-                      rotate: 5,
-                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
-                    }}
-                    animate={{
-                      boxShadow: [
-                        "0 10px 25px rgba(0, 0, 0, 0.1)",
-                        "0 15px 35px rgba(0, 0, 0, 0.15)",
-                        "0 10px 25px rgba(0, 0, 0, 0.1)"
-                      ]
-                    }}
-                    transition={{
-                      boxShadow: {
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.3
-                      }
+                      scale: 1.05,
+                      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)"
                     }}
                   >
-                    <service.icon className="w-8 h-8 text-white" />
-                  </motion.div>
-                  
-                  {/* Floating Emoji */}
-                  <motion.div 
-                    className="absolute -top-2 -right-2 text-xl"
-                    animate={{
-                      y: [0, -5, 0],
-                      rotate: [0, 10, -10, 0]
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.7
-                    }}
-                  >
-                    {service.emoji}
+                    <service.icon className="w-7 h-7 text-white" />
                   </motion.div>
                 </motion.div>
                 
                 {/* Content */}
                 <div className="flex-1 flex flex-col">
                   <motion.h3 
-                    className="text-xl font-bold text-gray-800 mb-4 group-hover:text-gray-900 transition-colors"
+                    className="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-900 transition-colors text-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -282,7 +249,7 @@ export function Services() {
                   </motion.h3>
                   
                   <motion.p 
-                    className="text-gray-600 leading-relaxed mb-6 text-sm flex-1"
+                    className="text-gray-600 leading-relaxed text-sm flex-1 text-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -290,21 +257,6 @@ export function Services() {
                   >
                     {t(service.descKey)}
                   </motion.p>
-                  
-                  {/* Minimal Button */}
-                  <motion.button 
-                    className="text-gray-700 font-medium text-sm flex items-center gap-2 group-hover:text-gray-900 transition-colors mt-auto"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    {t('learnMore')}
-                    <motion.span
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      →
-                    </motion.span>
-                  </motion.button>
                 </div>
                 
                 {/* Subtle Glow */}

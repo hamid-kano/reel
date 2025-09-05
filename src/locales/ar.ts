@@ -32,7 +32,6 @@ export const ar = {
   campaignsDesc: 'استراتيجيات إعلانية مدروسة لتحقيق أقصى عائد على الاستثمار',
   analytics: 'التحليل والتقارير',
   analyticsDesc: 'تحليل شامل للأداء وتقارير مفصلة لقياس النجاح',
-  learnMore: 'اعرف المزيد',
   
   // About Section
   aboutBadge: 'من نحن',

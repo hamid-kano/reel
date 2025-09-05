@@ -65,17 +65,17 @@ export function Testimonials() {
       reviewAr: 'فريق ريل محترف جداً، ساعدونا في تطوير حضورنا الرقمي بشكل مذهل. النتائج فاقت توقعاتنا بكثير.',
       reviewEn: 'Reel team is very professional, they helped us develop our digital presence amazingly. Results exceeded our expectations.',
       rating: 5,
-      image: '/api/placeholder/80/80'
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     },
     {
-      nameAr: 'سارة أحمد',
-      nameEn: 'Sara Ahmed',
-      positionAr: 'صاحبة مطعم الذوق الرفيع',
+      nameAr: 'خالد أحمد',
+      nameEn: 'Khalid Ahmed',
+      positionAr: 'صاحب مطعم الذوق الرفيع',
       positionEn: 'Owner of Fine Taste Restaurant',
       reviewAr: 'إدارة حساباتنا على السوشيال ميديا أصبحت أكثر احترافية، وزاد عدد العملاء بشكل ملحوظ.',
       reviewEn: 'Managing our social media accounts became more professional, and the number of customers increased significantly.',
       rating: 5,
-      image: '/api/placeholder/80/80'
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
     },
     {
       nameAr: 'محمد علي',
@@ -85,7 +85,7 @@ export function Testimonials() {
       reviewAr: 'التصاميم الإبداعية والمحتوى المميز ساعدنا في الوصول لجمهور أوسع وتحقيق مبيعات أفضل.',
       reviewEn: 'Creative designs and distinctive content helped us reach a wider audience and achieve better sales.',
       rating: 5,
-      image: '/api/placeholder/80/80'
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face'
     }
   ];
 
@@ -203,11 +203,15 @@ export function Testimonials() {
                     transition={{ delay: 0.6, duration: 0.6 }}
                   >
                     <motion.div 
-                      className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white font-bold text-xl"
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.6 }}
+                      className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      {(t('language') === 'ar' ? testimonials[currentIndex].nameAr : testimonials[currentIndex].nameEn).charAt(0)}
+                      <img 
+                        src={testimonials[currentIndex].image}
+                        alt={t('language') === 'ar' ? testimonials[currentIndex].nameAr : testimonials[currentIndex].nameEn}
+                        className="w-full h-full object-cover"
+                      />
                     </motion.div>
                     <div className="text-start">
                       <motion.div 
